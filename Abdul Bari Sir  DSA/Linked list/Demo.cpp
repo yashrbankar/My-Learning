@@ -5,6 +5,7 @@ class Node
 {
 public:
     int data;
+    int yash;
     Node *next;
 };
 

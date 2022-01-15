@@ -169,6 +169,7 @@ void Linkedlist::insert()
     }
     else
     {
+        
         for (int i = 1; i <= ind; i++)
         {
             q = p;
