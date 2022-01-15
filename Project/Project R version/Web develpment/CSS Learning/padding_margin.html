@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=" />
+    <title>padding and box</title>
+    <style>
+      .container {
+        background-color: rgb(205 221 243 / 90%);
+        border: 2px #28139ef8 solid;
+        /* padding: 10px; */
+         margin: 14 px 20px; /* top/bottom  R or L */
+        width: 300px;
+        border-radius:20px;
+        padding: 23px 40px 15px 78px; /* padding/margin  : top right: bottom: left: ; */
+        /* for inspect change in padding or any values short key alt + up or down arrow  */
+         box-sizing: border-box; /* used for box it mentains wid th change due to padding and margin */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>this is heading</h3>
+      <p id="first">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quia,
+        porro officia neque molestiae doloribus!
+      </p>
+    </div>
+    <div class="container">
+      <h3>this is heading</h3>
+      <p id="second">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quia,
+        porro officia neque molestiae doloribus!
+      </p>
+    </div>
+    <div class="container">
+      <h3>this is heading</h3>
+      <p id="third">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quia,
+        porro officia neque molestiae doloribus!
+      </p>
+    </div>
+  </body>
+</html>

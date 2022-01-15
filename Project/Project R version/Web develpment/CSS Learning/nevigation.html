@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navination </title>
+    <style>
+        .navbar{
+            background-color: rgb(7, 7, 7);
+           
+            /* margin: auto; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 10px;
+            height: 70px;
+           
+        }
+        li{
+            float: left;
+            list-style: none;
+            padding: 10px;
+            
+        }
+        ul{
+            overflow: auto;   /** after float must use _overflow auto_**/
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        div{
+            color: white;
+            float: right;
+            padding-right: 50px;
+            padding-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">home</a> </li>
+                <li><a href="#">about</a></li>
+                
+                <li><a href="#">services</a> </li>
+                <li><a href="#">contant us </a> </li>               
+                <div>
+                    <input type="text" name="search" id="search"  placeholder="Search Here ">
+                </div>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

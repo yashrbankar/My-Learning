@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GYM</title>
+    <style>
+      body{
+          margin: 0;
+          padding:0px;
+          color: white;
+          background-image: url(IMG/bg2.jpg); /* OPEN MAIN FOLDER*/
+
+      }
+      .left{
+            border: 2px solid red;
+            display: inline-block;
+            position: absolute;
+          left: 34px;
+          top: 20px; }
+
+        }
+        
+        
+
+        
+      .mid{
+        border: 2px solid green;
+        /* for margin auto 2 condition required 1. {dipaly = block } 2.{width} */
+        display: block;
+        width: 45%;
+        margin: 20px auto;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .navbar{
+          display: inline-block;
+      }
+      .navbar li{
+          display: inline-block;
+      }
+      .navbar li a{
+          color: white;
+          text-decoration: none;
+          padding: 34px 23px;
+          font-size: 25px;
+      }
+      /* .navbar li a:hover {
+
+          background-color:rgb(0, 0, 0);
+          border: 6px solid white;
+          width: 10px;
+          color: white;
+          font-weight: 900;
+          font-size: 30px;
+          font-family: Arial, Helvetica, sans-serif;
+      } */
+    
+      /* .right{
+          border: 2px solid yellow;
+          display: inline-block;
+          position: absolute;
+          right: 34px;
+          top: 20px;} */
+
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      THIS IS LEFT
+      <!-- left for logo -->
+      <!-- <div class="left">
+        <img src="IMG/LOGO2.jpg" alt="" />
+        <div class="logoname">GYMER</div>
+      </div> -->
+      <!-- mid for navigation -->
+      <div class="mid">
+        <ul class="navbar">
+          <li><a href="#" class="active"> home</a></li>
+          <li><a href="#"> about</a></li>
+          <li><a href="#"> fitness </a></li>
+          <li><a href="#"> contact</a></li>
+        </ul>
+      </div>
+      <!-- right for button -->
+      <div class="right">i am right</div>
+    </header>
+  </body>
+</html>

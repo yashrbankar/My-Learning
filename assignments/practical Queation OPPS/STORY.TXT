@@ -1,0 +1,6 @@
+The roses are red
+A girl is playing there
+There is a playground
+An aeroplane is in the sky
+Numbers are not allowed in password
+The function should display output as 3

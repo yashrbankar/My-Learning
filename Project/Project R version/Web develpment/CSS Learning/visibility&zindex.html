@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visibility & Index</title>
+    <style>
+        .box{
+            border: 2px solid black;
+            width:  200px;
+            height: 200px;
+        }
+        #box1{ background-color:green ;}
+
+        #box2{ 
+            /* visibility: hidden;  hidde only element not space  (visible defult)*/
+            background-color: red ;
+        }
+        #box3{ 
+            background-color: blue;
+            /*  display: none;   hidde both space and element */
+            }
+        #box4{ background-color: greenyellow ;}
+
+
+       /* z index works in only position 
+       it works for only position
+        this is used in overlaping
+
+       z1> z2 1 is visible in overlaping section  */
+        
+
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
+    <div class="box" id="box3">3</div>
+    <div class="box" id="box4">4</div>
+</body>
+</html>
