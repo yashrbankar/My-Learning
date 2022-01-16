@@ -11,12 +11,12 @@ int partition(int arr[] , int l , int h)
     {
         while(pivot>=arr[i]){i++;}
         while(pivot<arr[j]){j--;}
-        if (i<j)
+        if (i<j) /// ddd
         {
             swap(arr[i], arr[j]);
         }
     }
-    swap(arr[l] , arr[j]); 
+    swap(arr[l] , arr[j]); //ddd
     return j;    
 }
 
@@ -26,8 +26,8 @@ void quicksort(int arr[], int l , int h)
     if (l<h)
     {
       int j1=partition(arr , l , h);
-      quicksort(arr , l, j1-1 );//
-      quicksort(arr ,j1+1 , h); //
+      quicksort(arr , l, j1-1 );// ddd
+      quicksort(arr ,j1+1 , h); //ddd
     }
     
 }
