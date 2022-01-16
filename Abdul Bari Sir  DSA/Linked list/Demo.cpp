@@ -36,6 +36,8 @@ int main()
         cout << "enter the correct key " << endl;
         cout << "0 : Exit " << endl;
         cout << "1 : display " << endl;
+        cout << "2 : search " << endl;
+        cout << "3 : delete " << endl;
         cout << "enter the key :: ";
         cin >> key;
 
@@ -53,7 +55,9 @@ int main()
             cin>>ele;
             cout<<"at the position :: "<<obj.search( ele )<<endl;
             break;
-
+        case 3:
+            obj.delete1();
+            break;
         default:
             break;
         }
@@ -113,19 +117,30 @@ int Linkedlist::delete1()
     cout << "\n";
     cout << "Enter the correct element to be delete :: " << endl;
     cin>>ele;
+    Node* p;
     int position=search(ele);
-    if (postion == 1)
+    if (position == 1)
     {
-            Node* p;
+            
             p=first;
             first=first->next;
             delete p;
             p=NULL;
     }
-    
-    
-
-
+    else
+    {
+        p=first;
+        Node*q;
+        for (int i = 1; i < position; i++)
+        {
+            q=p;
+            p=p->next;
+        }
+        q->next=p->next;
+        delete p;
+        p=NULL;
+        display();
+    }
 }
 
 int Linkedlist::search(int element)

@@ -43,6 +43,8 @@ void Queue::preorder(Node *temp)
     }
    
 }
+
+
 void Queue::postorder(Node *temp)
 {
 
@@ -56,6 +58,8 @@ void Queue::postorder(Node *temp)
     }
    
 }
+
+
 void Queue::inorder(Node *temp)
 {
     if (temp != NULL)
@@ -67,6 +71,8 @@ void Queue::inorder(Node *temp)
     }
    
 }
+
+
 void Queue::create()
 {
     Node *p, *t;
@@ -107,6 +113,7 @@ void Queue::create()
     }
 }
 
+
 void Queue::enqueue(Node *data)
 {
     if (rear==99)
@@ -117,6 +124,8 @@ void Queue::enqueue(Node *data)
     rear++;
     arr[rear]=data;
 }
+
+
 
 Node *Queue::dequeue()
 {
