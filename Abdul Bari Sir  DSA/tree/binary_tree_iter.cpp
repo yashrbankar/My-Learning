@@ -161,10 +161,8 @@ void Tree::create()
     cout << "\n";
 }
 
-void Tree::preorder(Node *r)
+void Tree::preorder(Node *temp)
 {
-    Node *temp;
-    temp = r;
     while (temp || top != -1)
     {
 

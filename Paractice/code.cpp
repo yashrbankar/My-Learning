@@ -21,10 +21,33 @@ void bubble(int arr[], int n)
       }
    }
 }
+int minindex(int arr[], int j, int n)
+{
+   int min = 10000;
+   int index = 0;
+   for (int i = j; i < n; i++)
+   {
+      if (arr[i] < min)
+      {
+         min = arr[i];
+         index = i;
+      }
+   }
+   return index;
+}
+void selection(int arr[], int n)
+{
+   int index = 0;
+   for (int i = 0; i < n; i++)
+   {
+      int mini = minindex(arr, i, n);
+      swap(arr[mini],arr[index++]);
+   }
+}
 
 int main()
 {
-   int arr[5] = {5, 4, 1, 2, 3};
+   int arr[5] = {5,4,3,2,1};
    cout << "unsorted array";
    int n = 5;
    for (int i = 0; i < n; i++)
@@ -32,7 +55,7 @@ int main()
       cout << " " << arr[i];
    }
    cout << "\n";
-   bubble(arr, n);
+   selection(arr, n);
    cout << "sorted array";
    for (int i = 0; i < n; i++)
    {
