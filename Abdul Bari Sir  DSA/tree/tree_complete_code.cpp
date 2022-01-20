@@ -33,6 +33,7 @@ public:
 class Tree : public Node, public Stack, public Queue
 {
 public:
+    int leafcounter=0;
     // function
     void create();
     void preorder(Node *);
@@ -44,6 +45,7 @@ public:
     int count(Node *);
     int count2(Node *);
     int add(Node *);
+    int leafnode(Node*);
 };
 
 int main()
@@ -160,6 +162,9 @@ void Tree::create()
     cout << "\n count : " << count(root);
     cout << "\n count2 : " << count2(root);
     cout << "\n add : " << add(root);
+    leafnode(root);
+    cout<<"\nNo of leaf node :: "<<leafcounter;
+    cout<<"\nNo of internal node :: "<<leafcounter-1;
 }
 
 void Tree::preorder(Node *root)
@@ -175,13 +180,8 @@ void Tree::preorder(Node *root)
 
 void Tree::inorder(Node *root)
 {
-    Node *t = root;
-    if (t != NULL)
-    {
-        inorder(t->lchild);
-        cout << t->data << " ";
-        inorder(t->rchild);
-    }
+    Queue lq;
+
 }
 
 void Tree::postorder(Node *root)
@@ -300,4 +300,33 @@ void Tree::levelorder_i(Node *temp)
         }
     }
     
+}
+
+
+int Tree::leafnode(Node* temp)
+{
+    Queue lq;
+    Node *p;
+    lq.enQueue(temp);
+    while (lq.front!=lq.rear)
+    {
+        p=lq.deQueue();
+        if (p->lchild==NULL && p->rchild==NULL)
+        {
+            leafcounter++;
+        }
+        else
+        {
+            if (p->lchild)
+            {
+                lq.enQueue(p->lchild);
+            }
+            if(p->rchild)
+            {
+                lq.enQueue(p->rchild);
+            }
+            
+        }
+    }
+    cout<<" ll "<<leafcounter;
 }
