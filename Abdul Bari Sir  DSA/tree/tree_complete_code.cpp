@@ -305,28 +305,26 @@ void Tree::levelorder_i(Node *temp)
 
 int Tree::leafnode(Node* temp)
 {
-    Queue lq;
-    Node *p;
-    lq.enQueue(temp);
-    while (lq.front!=lq.rear)
-    {
-        p=lq.deQueue();
-        if (p->lchild==NULL && p->rchild==NULL)
-        {
-            leafcounter++;
-        }
-        else
-        {
-            if (p->lchild)
-            {
-                lq.enQueue(p->lchild);
-            }
-            if(p->rchild)
-            {
-                lq.enQueue(p->rchild);
-            }
-            
-        }
-    }
-    cout<<" ll "<<leafcounter;
+   Queue lq;
+   Node* p;
+   lq.enQueue(temp);
+   while (lq.front!=lq.rear)
+   {
+       p=lq.deQueue();
+       if(!(p->lchild && p->rchild))
+       {
+          leafcounter++;
+       }
+       else
+       {
+           if (p->lchild)
+           {
+               lq.enQueue(p->lchild);
+           }
+           if(p->rchild)
+           {
+               lq.enQueue(p->rchild);
+           }
+       }
+   }  
 }
