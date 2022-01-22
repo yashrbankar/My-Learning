@@ -202,9 +202,7 @@ void Tree::it_inorder(Node *temp)
            temp=pop();
            cout<<" "<<temp->data;
            temp=temp->rchild;
-        }
-        
-    }
-    
+        }  
+    }   
 }
 
