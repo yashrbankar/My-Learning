@@ -7,6 +7,7 @@ public:
     int A[5] = {1, 2, 4, 5, 7};
     int B[5] = {2, 3, 4, 6, 8};
     int a=5 , b=5;
+
     int C[10];
     int i = 0, j = 0, k = 0;
 
@@ -129,7 +130,7 @@ void Set::intersection2()
         }
     }
 
-    display(C,  k);
+    display(C,k);
 }
 
 void Set::subtration()

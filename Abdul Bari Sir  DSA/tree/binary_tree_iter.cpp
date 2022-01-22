@@ -8,7 +8,6 @@ public:
     Node *rchild;
     int data;
 };
-
 class Stack
 {
 public:
