@@ -30,25 +30,29 @@ public:
 class Tree : public Node, public Stack, public Queue
 {
 public:
-    Node* r;
+    Node *r;
     void create();
-    void preorder(Node*);
-    void it_preorder(Node*);
-    void it_inorder(Node*);
+    void preorder(Node *);
+    void it_preorder(Node *);
+    void it_inorder(Node *);
+    void it_level(Node *);
     int count(Node *);
+    int leaf(Node*);
 };
 
 int main()
 {
     Tree obj;
     obj.create();
-    cout<<"\n preorder ::";
+    cout << "\n preorder ::";
     obj.preorder(obj.r);
-    cout<<"\n preorder iterative ::";
+    cout << "\n preorder iterative ::";
     obj.it_preorder(obj.r);
-    cout<<"\n inorder iterative ::";
+    cout << "\n inorder iterative ::";
     obj.it_inorder(obj.r);
-    cout<<" \n count :: "<<obj.count(obj.r);
+    cout << "\n levelrder iterative ::";
+    obj.it_level(obj.r);
+    cout << " \n count :: " << obj.count(obj.r);
     return 0;
 }
 
@@ -96,7 +100,7 @@ void Queue::enQueue(Node *dataq)
     }
 }
 
-Node * Queue::deQueue()
+Node *Queue::deQueue()
 {
     if (rear == front)
     {
@@ -109,49 +113,49 @@ Node * Queue::deQueue()
     }
 }
 
-// tree function 
+// tree function
 void Tree::create()
 {
     int x;
-    Node *root , *temp , *p;
-    cout<<"enter the root value :: ";
-    root =new Node;
-    r=root;
-    cin>>x;
-    root->data=x;
-    root->lchild=root->rchild=NULL;
+    Node *root, *temp, *p;
+    cout << "enter the root value :: ";
+    root = new Node;
+    r = root;
+    cin >> x;
+    root->data = x;
+    root->lchild = root->rchild = NULL;
     enQueue(root);
-    while (rear!=front)
+    while (rear != front)
     {
-       p=deQueue();
-       cout<<"enter the left child of "<<p->data<<" :: ";
-       cin>>x;
-       if (x!=-1)
-       {
-           temp=new Node;
-           temp->data=x;
-           temp->lchild=temp->rchild=NULL;
-           p->lchild=temp;
-           enQueue(temp);
-       }
-       cout<<"enter the right child of "<<p->data<<" :: ";
-       cin>>x;
-       if (x!=-1)
-       {
-           temp=new Node;
-           temp->data=x;
-           temp->lchild=temp->rchild=NULL;
-           p->rchild=temp;
-           enQueue(temp);
-       }
+        p = deQueue();
+        cout << "enter the left child of " << p->data << " :: ";
+        cin >> x;
+        if (x != -1)
+        {
+            temp = new Node;
+            temp->data = x;
+            temp->lchild = temp->rchild = NULL;
+            p->lchild = temp;
+            enQueue(temp);
+        }
+        cout << "enter the right child of " << p->data << " :: ";
+        cin >> x;
+        if (x != -1)
+        {
+            temp = new Node;
+            temp->data = x;
+            temp->lchild = temp->rchild = NULL;
+            p->rchild = temp;
+            enQueue(temp);
+        }
     }
 }
 
-void Tree::preorder(Node* temp)
+void Tree::preorder(Node *temp)
 {
     if (temp)
     {
-        cout<<temp->data<<" ";
+        cout << temp->data << " ";
         preorder(temp->lchild);
         preorder(temp->rchild);
     }
@@ -159,50 +163,73 @@ void Tree::preorder(Node* temp)
 
 int Tree::count(Node *temp)
 {
-    int x , y, c;
+    int x, y, c;
     if (temp)
     {
-         x=count(temp->lchild);
-         y=count(temp->rchild);
-         return x+y+1;
+        x = count(temp->lchild);
+        y = count(temp->rchild);
+        return x + y + 1;
     }
     return 0;
 }
 
 void Tree::it_preorder(Node *temp)
 {
-    while (temp  || top!=-1)
+    while (temp || top != -1)
     {
         if (temp)
         {
-            cout<<temp->data<<" ";
+            cout << temp->data << " ";
             push(temp);
-            temp=temp->lchild;
+            temp = temp->lchild;
         }
         else
         {
-            temp=pop();
-            temp=temp->rchild;
+            temp = pop();
+            temp = temp->rchild;
         }
-        
     }
 }
 
 void Tree::it_inorder(Node *temp)
 {
-    while (temp || top!=-1)
+    while (temp || top != -1)
     {
         if (temp)
         {
-           push(temp);
-           temp=temp->lchild;
+            push(temp);
+            temp = temp->lchild;
         }
         else
         {
-           temp=pop();
-           cout<<" "<<temp->data;
-           temp=temp->rchild;
-        }  
-    }   
+            temp = pop();
+            cout << " " << temp->data;
+            temp = temp->rchild;
+        }
+    }
 }
 
+void Tree::it_level(Node *temp)
+{
+    Queue lq;
+    cout<<" "<<temp->data;
+    lq.enQueue(temp);
+    while (lq.rear != lq.front)
+    {
+        temp = lq.deQueue();
+        if (temp->lchild)
+        {
+            cout << temp->lchild->data << " ";
+            lq.enQueue(temp->lchild);
+        }
+        if (temp->rchild)
+        {
+            cout << temp->rchild->data << " ";
+            lq.enQueue(temp->rchild);
+        }
+    }
+}
+
+int Tree::leaf()
+{
+}
