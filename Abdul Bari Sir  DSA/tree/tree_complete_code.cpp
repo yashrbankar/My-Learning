@@ -43,7 +43,7 @@ public:
     void inorder_i(Node *);
     void levelorder_i(Node *);
     int count(Node *);
-    int count2(Node *);
+    int length_tree(Node *);
     int add(Node *);
     int leafnode(Node*);
 };
@@ -151,8 +151,6 @@ void Tree::create()
     preorder(root);
     cout << "\n Preorder iterative :: ";
     preorder_i(root);
-    cout << "\n inorder :: ";
-    inorder(root);
     cout << "\n inorder itertive  :: ";
     inorder_i(root);
     cout << "\n postorder ";
@@ -160,7 +158,7 @@ void Tree::create()
     cout << "\n levelorder using queue ";
     levelorder_i(root);
     cout << "\n count : " << count(root);
-    cout << "\n count2 : " << count2(root);
+    cout << "\n length_tree : " << length_tree(root);
     cout << "\n add : " << add(root);
     leafnode(root);
     cout<<"\nNo of leaf node :: "<<leafcounter;
@@ -176,12 +174,6 @@ void Tree::preorder(Node *root)
         preorder(t->lchild);
         preorder(t->rchild);
     }
-}
-
-void Tree::inorder(Node *root)
-{
-    Queue lq;
-
 }
 
 void Tree::postorder(Node *root)
@@ -220,14 +212,14 @@ int Tree::add(Node *root)
     }
 }
 
-int Tree::count2(Node *root)
+int Tree::length_tree(Node *root)
 {
     Node *t = root;
     while (t != NULL)
     {
         int x, y;
-        x = count2(t->lchild);
-        y = count2(t->rchild);
+        x = length_tree(t->lchild);
+        y = length_tree(t->rchild);
         if (x > y)
         {
             return x + 1;
