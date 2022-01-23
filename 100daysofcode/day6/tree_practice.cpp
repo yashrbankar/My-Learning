@@ -53,6 +53,7 @@ int main()
     cout << "\n levelrder iterative ::";
     obj.it_level(obj.r);
     cout << " \n count :: " << obj.count(obj.r);
+    obj.leaf(obj.r);
     return 0;
 }
 
@@ -230,6 +231,30 @@ void Tree::it_level(Node *temp)
     }
 }
 
-int Tree::leaf()
+int Tree::leaf(Node* temp)
 {
+    int leafounter=0;
+    Queue lq;
+    lq.enQueue(temp);
+    while (lq.front!=lq.rear)
+    {
+        temp=lq.deQueue();
+        if (!(temp->lchild&&temp->rchild))
+        {
+            leafounter++;
+        }
+        else
+        {
+            if (temp->lchild)
+            {
+                lq.enQueue(temp->lchild);
+            }
+            if (temp->rchild)
+            {
+                lq.enQueue(temp->rchild);
+            }
+        }
+    }
+    cout<<"\n leafcounter ::"<<leafounter;
+
 }
