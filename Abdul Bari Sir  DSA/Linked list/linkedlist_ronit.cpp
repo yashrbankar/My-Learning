@@ -283,7 +283,7 @@ void Linkedlist ::_delete()
     else
     {
 
-        for (int i = 1; i < index; i++)
+        for (int i = 1; i < index; i++) // mistake scope 
         {
             /* code */
             q = temp;
@@ -319,20 +319,20 @@ bool Linkedlist::is_sorted()
 
 void Linkedlist ::dublicate()
 {
-    Node *temp = first->next;
+    Node *temp = first->next;  // two poiters required for merging doublicates 
     Node *q = first;
 
-    while (temp != NULL)
+    while (temp)
     {
         if (q->data == temp->data)
         {
-            q->next = temp->next;
-            delete temp;
-            temp=q->next;
+            q->next = temp->next; // linked 1 node to the 3rd node 
+            delete temp;// deleted middle node
+            temp=q->next; // temp pointer had set
         }
         else
         {
-            q = temp;
+            q = temp; //saliding 2 pointers
             temp = temp->next;
         }
     }

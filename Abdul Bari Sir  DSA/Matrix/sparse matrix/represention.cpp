@@ -7,7 +7,6 @@ class Element
     int row;
     int col;
     int ele;
-
 };
 
 class Sparse
@@ -44,7 +43,6 @@ void Sparse::create()
 void Sparse::display()
 {
     int count=0;
-
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -69,6 +67,5 @@ int main()
     Sparse s;
     s.create();
     s.display();
-   
    return 0;
 }

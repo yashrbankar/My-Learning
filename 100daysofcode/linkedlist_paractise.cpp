@@ -170,7 +170,7 @@ void linkedlist::search_im()
 
 void linkedlist::dublicate()
 {
-    Node *p = first, *q = first->next;
+    Node *p = first, *q = first->next; 
     while (q)
     {
         if (p->data == q->data)
