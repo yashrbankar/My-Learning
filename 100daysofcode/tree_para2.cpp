@@ -14,6 +14,7 @@ class Stack
 public:
     int top = -1;
     Node *arrs[20];
+    
 };
 
 class Queue
@@ -28,26 +29,36 @@ class Tree : public Node, public Stack, public Queue
 {
 public:
     Node *root;
-    // stack
+
     void push(Node *);
     Node *pop();
-    // queue
-    void enQueue(Node *);
-    Node *deQueue();
+
     // tree
     void create();
     void preorder(Node*);
+
+    void enQueue(Node *);
+    Node *deQueue();
+
+    void preorder_i();
+    void inorder_i();
 };
 
 int main()
 {
     Tree obj;
     obj.create();
-    
+    cout<<"preorder ";
+    obj.preorder(obj.root);
+    cout<<"/n preorder itertive:: ";
+    obj.preorder_i();
+    cout<<"/n inorder itertive:: ";
+    obj.inorder_i();
+
     return 0;
 }
 
-void Tree::push(Node *datas)
+void Tree::push(Node *d)
 {
     if (top == 19)
     {
@@ -56,7 +67,7 @@ void Tree::push(Node *datas)
     else
     {
         top++;
-        arrs[top] == datas;
+        arrs[top] = d;
     }
 }
 Node *Tree::pop()
@@ -102,16 +113,15 @@ Node *Tree::deQueue()
 }
 
 // tree
-
 void Tree::create()
 {
-    Node *p, *last ,*temp;
+    Node *p,*temp;
     root = new Node;
     int x;
     cout << "enter the root value ::";
     cin >> x;
     root->data = x;
-    root->lchild = root->lchild = NULL;
+    root->lchild = root->rchild = NULL;
     enQueue(root);
     while (rear != front)
     {
@@ -149,7 +159,37 @@ void Tree::preorder(Node *temp)
         preorder(temp->lchild);
         preorder(temp->rchild);
     }
-    
+}
 
 
+void Tree::preorder_i()
+{
+    Node *temp;
+    temp=root;
+    while (temp || top!=-1)
+    {
+        if(temp)
+        {
+            cout<<" "<<temp->data;
+            push(temp);
+            temp=temp->lchild;
+        }
+        else
+        {
+           temp=pop();
+           temp=temp->rchild; 
+        }
+    }
+}
+
+void Tree::inorder_i()
+{
+    Node *temp=root;
+    while (temp)
+    {
+        if (temp)
+        {
+            cout<<"yash bankar";
+        }
+    }
 }
