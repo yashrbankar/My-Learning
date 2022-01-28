@@ -42,6 +42,8 @@ public:
 
     void preorder_i();
     void inorder_i();
+    int count(Node* );
+    void levelorder();
 };
 
 int main()
@@ -50,10 +52,13 @@ int main()
     obj.create();
     cout<<"preorder ";
     obj.preorder(obj.root);
-    cout<<"/n preorder itertive:: ";
+    cout<<"\n preorder itertive:: ";
     obj.preorder_i();
-    cout<<"/n inorder itertive:: ";
+    cout<<"\n inorder itertive:: ";
     obj.inorder_i();
+    cout<<"\n level of tree ::";
+    cout<<obj.count(obj.root);
+
 
     return 0;
 }
@@ -185,12 +190,54 @@ void Tree::preorder_i()
 void Tree::inorder_i()
 {
     Node *temp=root;
-    while (temp)
+    while (temp ||top!=-1)
     {
         if (temp)
         {
-            cout<<"yash bankar";
-            cout<<"deepak gupta";
+            push(temp);
+            temp=temp->lchild;
+        }
+        else
+        {
+            temp=pop();
+            cout<<temp->data<<" ";
+            temp=temp->rchild;
         }
     }
+}
+
+int Tree::count(Node* temp)
+{
+    int counter=0 , x, y;
+    
+    if (temp)
+    {
+        x=count(temp->lchild);
+        y=count(temp->rchild);
+        if (x<y)
+        {
+            return y+1;
+        }
+        else
+        {
+            return x+1;
+        }
+        
+    }
+    return 0;
+}
+
+void Tree::levelorder()
+{
+
+    Node *temp=root , *p;
+    enQueue(temp);
+
+    while (temp)
+    {
+        p=deQueue();
+        
+
+    }
+    
 }
