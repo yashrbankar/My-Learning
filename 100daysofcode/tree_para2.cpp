@@ -190,6 +190,7 @@ void Tree::inorder_i()
         if (temp)
         {
             cout<<"yash bankar";
+            cout<<"deepak gupta";
         }
     }
 }
