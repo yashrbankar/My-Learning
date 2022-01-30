@@ -5,7 +5,7 @@ class Node
 {
   public:
   int data;
-  NOde* next;
+  Node* next;
   Node* prev;
 };
 
@@ -36,6 +36,7 @@ void Linkedlist::create()
         last=temp;
     }
     temp->next=head;
+    head->prev=temp;
     display();
 }
 
@@ -45,9 +46,16 @@ void Linkedlist::display()
     do
     {
         cout<<t->data<<" ";
-        t=t->next;
-
+        t=t->prev;
     } while (t!=head);
+
+    // looping test
+    // while (t)
+    // {
+    //     cout<<" "<<t->data;
+    //     t=t->next;
+    // }
+    
 }
 
 
