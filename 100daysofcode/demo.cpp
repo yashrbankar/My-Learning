@@ -103,6 +103,9 @@ int main()
     linkedlist obj;
     obj.create();
     obj.insert();
+    linkedlist obj2;
+    obj2.create();
+    obj2.insert();
 
     return 0;
 }
