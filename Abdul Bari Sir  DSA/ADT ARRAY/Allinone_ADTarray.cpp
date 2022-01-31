@@ -109,7 +109,7 @@ int ADT::insert()
     if (index <= length)
     {
 
-        for (int i = length; i > index - 1; i--)
+        for(int i = length; i > index - 1; i--)
         {
             arr[i + 1] = arr[i];
         }
@@ -153,11 +153,10 @@ void ADT::reverse()
     int i = 0, j = length - 1;
     while (i < j)
     {
-        swap(arr[i], arr[j]);
+        swap(arr[i], arr[j]); // STL function 
         i++;
         j--;
     }
-
     display();
 }
 
