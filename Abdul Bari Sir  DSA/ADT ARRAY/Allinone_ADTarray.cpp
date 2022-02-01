@@ -106,7 +106,7 @@ int ADT::insert()
     cin >> index;
     cout << "Enter the Number for inserting  :: ";
     cin >> number;
-    if (index <= length)
+    if (index <length)
     {
 
         for(int i = length; i > index - 1; i--)

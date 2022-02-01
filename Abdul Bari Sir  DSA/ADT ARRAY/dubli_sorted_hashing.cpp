@@ -4,7 +4,6 @@ class hash1
 {
     int A[10] = {3, 6, 8, 8, 8, 10, 10 , 12, 15, 20};
     int H[20];
-
 public:
     void func();
 };
