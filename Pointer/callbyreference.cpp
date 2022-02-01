@@ -13,16 +13,15 @@ using namespace std;
 // This not swaped 
 // beacuse the changes done in only the swap function 
 
-int swap(int  m , int n)
+void swap(int  m , int n)
 {
     int temp=m;
     m=n;
     n=temp;
-
 }
 
 // swap by using reference
-int reference_swap(int &m , int &n) // copying value  by reference 
+void reference_swap(int &m , int &n) // copying value  by reference 
 {
     int temp=m;
     m=n;
@@ -31,7 +30,7 @@ int reference_swap(int &m , int &n) // copying value  by reference
 
 //swap by using the Pointer
 
-int pointer_swap(int *a , int *b)
+void pointer_swap(int *a , int *b)
 {
     int temp=*a;
     *a=*b;
@@ -42,6 +41,10 @@ int main()
 {
 
     int a=10 , b=20;
+    int & k=a;
+    k++;
+    cout<<"\n this is reference :: "<<a;
+    cout<<"\n this is reference :: "<<k;
     cout<<"The value of a & b :: "<<a <<" & "<<b<<endl;
 
   // This not swaped 

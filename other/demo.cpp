@@ -1,93 +1,119 @@
 #include <iostream>
 using namespace std;
-
-class Array
+class Node
 {
 public:
-    int n;
-    int size = 10;
-    int *H;
-    int length;
-    int *A;
-
-    void display();
-    void append();
-    void insert();
-    int search();
-    Array()
-    {
-        A = new int[size];
-
-        cout << "Enter number of elements to be inserted in array :" << endl;
-        cin >> n;
-        length = n;
-        for (int i = 0; i < n; i++)
-        {
-            cout << "Enter value of " << i << " index :" << endl;
-            cin >> A[i];
-        }
-    }
+    int data;
+    Node *next;
 };
-void Array::display()
+class Clinkedlist
 {
+public:
+    Node *first;
+    void create(int A[], int n);
+    void display();
+    void insert();
+    void delet();
+};
+void Clinkedlist::create(int A[], int n)
+{
+    Node *temp, *last;
+    first = new Node;
+    first->data = A[0];
+    first->next = NULL;
+    last = first;
 
-    for (int i = 0; i < length; i++)
+    for (int i = 1; i < n; i++)
     {
-        cout << A[i] << " ";
+        temp = new Node;
+        temp->data = A[i];
+        temp->next = first;
+        last->next = temp;
+        last = temp;
     }
 }
-void Array::append()
+void Clinkedlist::display()
 {
-    int x;
-    cout << "\nEnter number to be added in array :" << endl;
-    cin >> x;
-    A[length] = x;
-    length++;
-    cout << "New Array is : " << endl;
-    display();
-}
-void Array::insert()
-{
-    int index, x;
-    cout << "\nEnter index at which value is to be insertd " << endl;
-    cin >> index;
-    cout << "Enter value to be inserted : " << endl;
-    cin >> x;
-    for (int i = length; i >= index; i--)
+    Node *p;
+    p = first;
+    do
     {
-        A[i + 1] = A[i];
-    }
-    A[index] = x;
-    length++;
-    display();
+        cout << p->data << " ";
+        p = p->next;
+    } while (p != first);
 }
-int Array::search()
+void Clinkedlist::insert()
 {
-    int key;
-    cout << "\nEnter element to be found : " << endl;
-    cin >> key;
-    for (int i = 0; i < length; i++)
+    Node *p, *t;
+    int pos, x;
+    cout << "Enter position at which new value is to be inserted :" << endl;
+    cin >> pos;
+    cout << "Enter the value that is to be inserted :" << endl;
+    cin >> x;
+    t = new Node;
+    p = first;
+    t->data = x;
+    if (pos == 0)
     {
-        if (key == A[i])
+        t->next = first;
+        while (p->next != first)
         {
-            return i;
+            p = p->next;
         }
-    }
-    return -1;
-}
-int main()
-{
-    Array a;
-    a.append();
-    a.insert();
-    int ans=a.search();
-    if (ans != 1)
-    {
-        cout << "Element found at index " << ans << endl;
+        p->next = t;
+        first = t;
     }
     else
     {
-        cout << "Element not found " << endl;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            p = p->next;
+        }
+        t->next = p->next;
+        p->next = t;
+        
     }
+    display();
+}
+void Clinkedlist::delet()
+{
+    Node *p, *q;
+    int pos, x;
+    cout << "Enter position at which value is to be deleted :" << endl;
+    cin >> pos;
+    if (pos == 1)
+    {
+        p = first;
+        while (p->next != first)
+        {
+            p = p->next;
+            p->next = first->next;
+            x = first->data;
+            delete first;
+            first = p->next;
+        }
+    }
+    else
+    {
+        p = first;
+        for (int i = 0; i < pos - 2; i++)
+        {
+            p = p->next;
+        }
+        q = p->next;
+        p->next = q->next;
+        x = q->data;
+        delete q;
+    }
+    display();
+}
+int main()
+{
+    int A[5] = {1, 2, 3, 4, 5};
+    Clinkedlist c;
+    c.create(A, 5);
+    // c.display();
+    c.insert();
+    // c.delet();
     return 0;
 }
