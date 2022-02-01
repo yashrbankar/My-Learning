@@ -60,7 +60,6 @@ void rotate(int arr[] , int n)
    }
    arr[n-1]=first;
    Display(arr , n);
-
 }
 
 int main()
