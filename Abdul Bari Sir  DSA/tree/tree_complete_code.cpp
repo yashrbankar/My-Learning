@@ -14,7 +14,7 @@ class Stack
 public:
     int top = -1;
     Node *arrs[20];
-
+   // stack function 
     void push(Node *data);
     Node *pop();
 };
@@ -25,7 +25,7 @@ public:
     int front = -1;
     int rear = -1;
     Node *arrq[20];
-
+     // Queue function 
     void enQueue(Node *data);
     Node *deQueue();
 };
@@ -34,7 +34,7 @@ class Tree : public Node, public Stack, public Queue
 {
 public:
     int leafcounter=0;
-    // function
+    // Tree function
     void create();
     void preorder(Node *);
     void preorder_i(Node *);
@@ -97,6 +97,7 @@ void Queue::enQueue(Node *dataq)
         arrq[rear] = dataq;
     }
 }
+
 Node *Queue::deQueue()
 {
     if (rear == front)
