@@ -32,22 +32,21 @@ void Linkedlist::create1()
         temp=new Node;
         temp->data=arr[i];
         temp->next=temp->prev=NULL;
-        last->next=temp;
         temp->prev=last;
+        last->next=temp;
         last=temp;
     }
-    temp->next=first;
-    first->prev=temp;  
 }
 
 void Linkedlist::display()
 {
     Node *t=first;
-    do
+    while (t)
     {
         cout<<" "<<t->data;
         t=t->next;
-    } while (t!=first);
+    }
+    
 
     //  test linkedlist ;
     // while (t)
@@ -59,19 +58,17 @@ void Linkedlist::display()
 
 void Linkedlist::reverse()
 {
-    Node* pt=first;
-    Node* t1=NULL,*t2=NULL ,*prev;
+    Node* &pt=first;
+    Node *prev,*temp;
 
-    do
+    while(pt)
     {
         prev=pt;
-        t1=pt->next;
-        t2=pt->prev;
-        Node* temp=t1;
-        t1=t2;
-        t2=temp;
-        pt=t2;
-    } while (pt!=first);
+        temp=pt->next;
+        pt->next=pt->prev;
+        pt->prev=temp;
+        pt=pt->prev;
+    }
     first=prev;
     display();
 }
