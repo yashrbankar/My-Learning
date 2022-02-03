@@ -31,7 +31,7 @@ void Linkedlist::create1()
     {
         temp=new Node;
         temp->data=arr[i];
-        temp->next=temp->next=NULL;
+        temp->next=temp->prev=NULL;
         last->next=temp;
         temp->prev=last;
         last=temp;
@@ -64,7 +64,6 @@ void Linkedlist::reverse()
 
     do
     {
-
         t1=pt->next;
         t2=pt->prev;
         Node* temp=t1;
