@@ -60,10 +60,11 @@ void Linkedlist::display()
 void Linkedlist::reverse()
 {
     Node* pt=first;
-    Node* t1,*t2;
+    Node* t1=NULL,*t2=NULL ,*prev;
 
     do
     {
+        prev=pt;
         t1=pt->next;
         t2=pt->prev;
         Node* temp=t1;
@@ -71,8 +72,7 @@ void Linkedlist::reverse()
         t2=temp;
         pt=t2;
     } while (pt!=first);
-    first=pt;
-    
+    first=prev;
     display();
 }
 
