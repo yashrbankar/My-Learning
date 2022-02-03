@@ -40,11 +40,10 @@ void Linkedlist::create()
 
 void Linkedlist::reverse_recur(Node *p ,Node* q)
 {
-    
     if (q)
     {
         reverse_recur(q,q->next);
-        p->next=q;
+        q->next=p;
     }
     else
     {
@@ -64,7 +63,8 @@ int main()
 {
     Linkedlist obj;
     obj.create();
-    obj.reverse_recur(obj.first , obj.first->next);
+    obj.reverse_recur(NULL , obj.first);
+    cout<<"\n";
     obj.display(obj.first);
     return 0;
 }
