@@ -10,10 +10,10 @@ int sear(int arr[], int n , int key)
             return 1;
         }
     }
-    return 0;
+    return -1;
 }
 
-int Union()
+void Union()
 {
     int A[5]={2,6,4,8,1};
     int B[4]={4,1,7,5};
@@ -25,13 +25,12 @@ int Union()
         C[count++]=A[i];
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 4; i++)
     {
-        int key=A[i];
+        int key=B[i];
         int res;
-        res=sear(B, 4,key);
-
-        if(res==0)
+        res=sear(A, 5,key);
+        if(res==1)
         {
             C[count++]=key;
         }
@@ -41,6 +40,7 @@ int Union()
     {
         cout<<" "<<C[i];
     }
+    cout<<" \n";
 }
 int main()
 {
