@@ -24,6 +24,7 @@ void Union()
             j++;
         }
     }
+    
     for (; i < 5; i++)
     {
             C[count++]=A[i];
