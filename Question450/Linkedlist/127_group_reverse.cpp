@@ -12,19 +12,19 @@ class Linkedlist
     Node* first;
     void create();
     void display();
-    void grouping();
+    Node* grouping(Node* , int);
 };
 
 void Linkedlist::create()
 {
-    int arr[]={1,2,3,4,5,6,7,8,9,10,11,12};
+    int arr[]={1,2,3,4,5,6,7,8};
     Node* temp, *last;
     first=new Node;
     first->data=arr[0];
     first->next=NULL;
     last=first;
 
-    for (int i = 1; i <12; i++)
+    for (int i = 1; i <8; i++)
     {
         temp=new Node;
         temp->data=arr[i];
@@ -35,54 +35,26 @@ void Linkedlist::create()
     // display();
 }
 
-void Linkedlist::grouping()
+Node* Linkedlist::grouping(Node* head , int k)
 {
-    Node*q=NULL,*pt=first, *r=first->next;
     
-    Node* link1=NULL;
-    Node* link2=NULL;
-    Node* link3=NULL;
-    int flag=0, k, fcount=0 , count1=-1;
-    cout<<"group of  ::  ";
-    cin>>k;
-
-    while (pt)
+    Node * nex;
+    Node * prev=NULL;
+    int count=0;
+    Node * cur=head;
+    while (cur && count<k)
     {
-        if(count1==-1)
-        {
-            link3=pt;
-            count1++;
-        }
-
-        pt->next=q;
-        q=pt;
-        pt=r;
-        r=r->next;
-        flag++;
-        if(flag+1==k)
-        {
-            flag=0;
-            fcount++;
-            if(fcount==1)
-            {
-               first=pt;
-            }
-            link2=pt;
-            pt=pt->next;
-            // link2->next=link1;
-            link3->next=pt;
-            link3=pt;            
-            link1=link2;
-            q=NULL;
-            if(pt)
-            {
-                r=pt->next;
-            }
-            
-            count1=-1;
-        }
+        nex=cur->next;
+        cur->next=prev;
+        prev=cur;
+        cur=nex;
+        count++;
     }
-    display();
+    if (cur)
+    {
+        head->next=grouping(nex, k);
+    }
+    return prev;
 }
 
 
@@ -103,6 +75,8 @@ int main()
 {
     Linkedlist obj;
     obj.create();
-    obj.grouping();
+    obj.display();
+    obj.grouping(obj.first , 4);
+    obj.display();
    return 0;
 }
