@@ -15,6 +15,7 @@ public:
     int top = -1;
     Node *arrs[20];
    // stack function 
+   // stack contains LIFO 
     void push(Node *data);
     Node *pop();
 };
@@ -26,6 +27,7 @@ public:
     int rear = -1;
     Node *arrq[20];
      // Queue function 
+     // Queue contains LIFO DATA Structure 
     void enQueue(Node *data);
     Node *deQueue();
 };
