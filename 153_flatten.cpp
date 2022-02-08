@@ -15,6 +15,8 @@ public:
     Node *first;
     void create();
     void display();
+    void display2();
+    void singly();
 };
 
 void Linkedlist::create()
@@ -43,7 +45,7 @@ void Linkedlist::create()
         {
             temp->bottom = NULL;
             // cout << "-->null\n";
-            temp=temp->next;
+            temp = temp->next;
         }
         else
         {
@@ -90,11 +92,58 @@ void Linkedlist::display()
     }
 }
 
+void Linkedlist::display2()
+{
+    Node *temp = first;
+    while (temp)
+    {
+        cout << temp->data << "-->";
+        temp=temp->next;
+    }
+    cout << "NULL \n";
+}
+
+void Linkedlist::singly()
+{
+    Node *temp_next = first;
+    Node *temp_bottom = first->bottom;
+    Node *target = temp_bottom;
+    while (temp_next)
+    {
+        Node *p, *q;
+        p = temp_next->next;
+        q = temp_next;
+
+        while (q->bottom)
+        {
+            target = q->bottom;
+            q->bottom = target->bottom;
+            if (p->data > target->data)
+            {
+                q->next = target;
+                target->next = p;
+                p=target;
+                // break;
+            }
+            // temp_bottom=temp_bottom->bottom;
+        }
+        if (!p)
+        {
+            q->next = target;
+            target->next = NULL;
+        }
+
+        temp_next = temp_next->next;
+    }
+}
+
 int main()
 {
     Linkedlist obj;
     obj.create();
     obj.display();
+    obj.singly();
+    obj.display2();
 
     return 0;
 }
