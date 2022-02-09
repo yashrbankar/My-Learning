@@ -98,7 +98,7 @@ void Linkedlist::display2()
     while (temp)
     {
         cout << temp->data << "-->";
-        temp=temp->next;
+        temp = temp->next;
     }
     cout << "NULL \n";
 }
@@ -108,31 +108,43 @@ void Linkedlist::singly()
     Node *temp_next = first;
     Node *temp_bottom = first->bottom;
     Node *target = temp_bottom;
+    Node *p, *q, *base = first;
     while (temp_next)
     {
-        Node *p, *q;
-        p = temp_next->next;
         q = temp_next;
-
-        while (q->bottom)
+        p = q->next;
+        while (base->bottom)
         {
-            target = q->bottom;
-            q->bottom = target->bottom;
-            if (p->data > target->data)
+            if (!p)
             {
+                base->bottom=target->bottom;
                 q->next = target;
+                target->bottom=NULL;
+                target->next = NULL;
+                q=base;
+                p=q->next;
+                // base=base->next;
+            }
+
+            else if (p->data > target->data)
+            {
+                base->bottom = target->bottom;
+                q->next = target;
+                target->bottom=NULL;
                 target->next = p;
-                p=target;
-                // break;
+                p = target;
+                target = base->bottom;
+            }
+            else
+            {
+                q = p;
+                p = p->next;
             }
             // temp_bottom=temp_bottom->bottom;
         }
-        if (!p)
-        {
-            q->next = target;
-            target->next = NULL;
-        }
 
+        base = base->next;
+        target = base->bottom;
         temp_next = temp_next->next;
     }
 }
