@@ -117,12 +117,12 @@ void Linkedlist::singly()
         {
             if (!p)
             {
-                base->bottom=target->bottom;
+                base->bottom = target->bottom;
                 q->next = target;
-                target->bottom=NULL;
+                target->bottom = NULL;
                 target->next = NULL;
-                q=base;
-                p=q->next;
+                q = base;
+                p = q->next;
                 // base=base->next;
             }
 
@@ -130,7 +130,7 @@ void Linkedlist::singly()
             {
                 base->bottom = target->bottom;
                 q->next = target;
-                target->bottom=NULL;
+                target->bottom = NULL;
                 target->next = p;
                 p = target;
                 target = base->bottom;
@@ -144,7 +144,10 @@ void Linkedlist::singly()
         }
 
         base = base->next;
-        target = base->bottom;
+        if (base)
+        {
+            target = base->bottom;
+        }
         temp_next = temp_next->next;
     }
 }
