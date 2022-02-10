@@ -17,6 +17,7 @@ public:
     void display();
     void display2();
     void singly();
+    void recur(Node*);
 };
 
 void Linkedlist::create()
@@ -152,13 +153,15 @@ void Linkedlist::singly()
     }
 }
 
+
 int main()
 {
     Linkedlist obj;
     obj.create();
     obj.display();
-    obj.singly();
     obj.display2();
-
+    cout<<"\n this the inorder :: \n";
+    // obj.recur(obj.first);
+    
     return 0;
 }
