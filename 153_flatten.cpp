@@ -17,7 +17,7 @@ public:
     void display();
     void display2();
     void singly();
-    void recur(Node*);
+    void recur(Node *);
 };
 
 void Linkedlist::create()
@@ -109,39 +109,38 @@ void Linkedlist::singly()
     Node *temp_next = first;
     Node *temp_bottom = first->bottom;
     Node *target = temp_bottom;
-    Node *p, *q, *base = first;
-    while (temp_next)
+    Node *cur, *tail, *base = first;
+    while (temp_next) // for traversing linear
     {
-        q = temp_next;
-        p = q->next;
-        while (base->bottom)
+        tail = temp_next;
+        cur = tail->next;
+        while (base->bottom) // for traversing vertical
         {
-            if (!p)
+            if (!cur)
             {
                 base->bottom = target->bottom;
-                q->next = target;
+                tail->next = target;
                 target->bottom = NULL;
                 target->next = NULL;
-                q = base;
-                p = q->next;
-                // base=base->next;
+                tail = base;
+                cur = tail->next;
             }
 
-            else if (p->data > target->data)
+            else if (cur->data > target->data)
             {
-                base->bottom = target->bottom;
-                q->next = target;
-                target->bottom = NULL;
-                target->next = p;
-                p = target;
+                base->bottom = target->bottom; //? creating brige 
+                tail->next = target; //! inserting  target node after tail
+                target->bottom = NULL; //! insertion
+                target->next = cur;
+                cur = target;
                 target = base->bottom;
             }
+
             else
             {
-                q = p;
-                p = p->next;
+                tail = cur;
+                cur = cur->next;
             }
-            // temp_bottom=temp_bottom->bottom;
         }
 
         base = base->next;
@@ -153,15 +152,15 @@ void Linkedlist::singly()
     }
 }
 
-
 int main()
 {
     Linkedlist obj;
     obj.create();
     obj.display();
+    obj.singly();
     obj.display2();
     // cout<<"\n this the inorder :: \n";
     // obj.recur(obj.first);
-    
+
     return 0;
 }
