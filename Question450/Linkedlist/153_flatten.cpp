@@ -17,7 +17,7 @@ public:
     void display();
     void display2();
     void singly();
-    void recur(Node*);
+    void recur(Node *);
 };
 
 void Linkedlist::create()
@@ -107,8 +107,7 @@ void Linkedlist::display2()
 void Linkedlist::singly()
 {
     Node *temp_next = first;
-    Node *temp_bottom = first->bottom;
-    Node *target = temp_bottom;
+    Node *target;
     Node *p, *q, *base = first;
     while (temp_next)
     {
@@ -116,6 +115,7 @@ void Linkedlist::singly()
         p = q->next;
         while (base->bottom)
         {
+            target = base->bottom;
             if (!p)
             {
                 base->bottom = target->bottom;
@@ -124,7 +124,6 @@ void Linkedlist::singly()
                 target->next = NULL;
                 q = base;
                 p = q->next;
-                // base=base->next;
             }
 
             else if (p->data > target->data)
@@ -134,34 +133,25 @@ void Linkedlist::singly()
                 target->bottom = NULL;
                 target->next = p;
                 p = target;
-                target = base->bottom;
             }
             else
             {
                 q = p;
                 p = p->next;
             }
-            // temp_bottom=temp_bottom->bottom;
         }
-
         base = base->next;
-        if (base)
-        {
-            target = base->bottom;
-        }
         temp_next = temp_next->next;
     }
 }
-
 
 int main()
 {
     Linkedlist obj;
     obj.create();
     obj.display();
+    obj.singly();
     obj.display2();
-    // cout<<"\n this the inorder :: \n";
-    // obj.recur(obj.first);
-    
+
     return 0;
 }
