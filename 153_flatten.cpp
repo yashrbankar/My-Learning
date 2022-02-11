@@ -22,13 +22,13 @@ public:
 
 void Linkedlist::create()
 {
-    int arr[] = {5, 10, 19, 28};
+    vector<int>arr = {5, 10, 19, 28};
     Node *last, *temp;
     first = new Node;
     first->data = arr[0];
     first->bottom = first->next = NULL;
     last = first;
-    for (int i = 1; i < 4; i++)
+    for (int i = 1; i < arr.size(); i++)
     {
         temp = new Node;
         temp->data = arr[i];
@@ -107,13 +107,13 @@ void Linkedlist::display2()
 void Linkedlist::singly()
 {
     Node *temp_next = first;
-    Node *temp_bottom = first->bottom;
-    Node *target = temp_bottom;
+    Node *target;
     Node *cur, *tail, *base = first;
     while (temp_next) // for traversing linear
     {
         tail = temp_next;
         cur = tail->next;
+        target=base->bottom;
         while (base->bottom) // for traversing vertical
         {
             if (!cur)
@@ -124,6 +124,7 @@ void Linkedlist::singly()
                 target->next = NULL;
                 tail = base;
                 cur = tail->next;
+                target=base->bottom;
             }
 
             else if (cur->data > target->data)
@@ -144,10 +145,6 @@ void Linkedlist::singly()
         }
 
         base = base->next;
-        if (base)
-        {
-            target = base->bottom;
-        }
         temp_next = temp_next->next;
     }
 }
@@ -159,8 +156,5 @@ int main()
     obj.display();
     obj.singly();
     obj.display2();
-    // cout<<"\n this the inorder :: \n";
-    // obj.recur(obj.first);
-
     return 0;
 }
