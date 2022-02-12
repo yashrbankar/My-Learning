@@ -15,8 +15,8 @@ int main()
 	// initialised at the time of
 	// declaration hence there is
 	// no error in them
-	auto x = "tff";
-	auto y = 3;
+	auto x = 'v';
+	auto y = true;
 	auto ptr = &x;
 	cout << typeid(x).name() << endl
 		<< typeid(y).name() << endl
