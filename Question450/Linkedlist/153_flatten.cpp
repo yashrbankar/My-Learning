@@ -106,42 +106,44 @@ void Linkedlist::display2()
 
 void Linkedlist::singly()
 {
-    Node *temp_next = first;
-    Node *target;
-    Node *p, *q, *base = first;
-    while (temp_next)
+    Node *horizontal = first; // ? pointer used for traversing horizontally
+    Node *target; //! shifting element 
+    Node *cur, *tail, *base = first;  
+    while (horizontal)
     {
-        q = temp_next;
-        p = q->next;
+        tail = horizontal; //! sliding pointer 
+        cur = tail->next;
         while (base->bottom)
         {
-            target = base->bottom;
-            if (!p)
+            target = base->bottom; // *setting the pointer  
+            if (!cur) //! that means we have to insert at end 
             {
-                base->bottom = target->bottom;
-                q->next = target;
-                target->bottom = NULL;
-                target->next = NULL;
-                q = base;
-                p = q->next;
+                base->bottom = target->bottom;// * creating the bridge 
+                tail->next = target; // inserting 
+                target->bottom = NULL; // most imp 
+                target->next = NULL;// inserting
+                //  resetting the tail and cur pointer 
+                tail = base;
+                cur = tail->next;
             }
 
-            else if (p->data > target->data)
+            else if (cur->data > target->data)
             {
                 base->bottom = target->bottom;
-                q->next = target;
-                target->bottom = NULL;
-                target->next = p;
-                p = target;
+                tail->next = target;
+                target->bottom = NULL; // very imp step  target.bottom must be null
+                target->next = cur;
+                cur = target;
             }
             else
             {
-                q = p;
-                p = p->next;
+                // sliding 
+                tail = cur;
+                cur = cur->next;
             }
         }
         base = base->next;
-        temp_next = temp_next->next;
+        horizontal = horizontal->next;
     }
 }
 
@@ -152,6 +154,5 @@ int main()
     obj.display();
     obj.singly();
     obj.display2();
-
     return 0;
 }
