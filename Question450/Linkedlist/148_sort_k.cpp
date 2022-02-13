@@ -83,8 +83,6 @@ void Linkedlist::display(Node*temp)
         cout<<temp->data<<" ";
         temp=temp->next;
     }
-    
-
 }
 int main()
 {
