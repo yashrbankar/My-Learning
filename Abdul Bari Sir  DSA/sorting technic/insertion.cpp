@@ -4,11 +4,11 @@ void insert()
 {
     vector <int>v={5,4,3,2,1};
     int j,n, k;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i < v.size(); i++)
     {
         j=i-1;
         k=v[i];
-        while (v[j]>k && j>=0)
+        while (v[j]>k && j>-1)
         {
             v[j+1]=v[j];
             j--;
@@ -19,9 +19,6 @@ void insert()
     {
         cout<<" "<<v[i];
     }
-    
-    
-
 }
 
 int main()
