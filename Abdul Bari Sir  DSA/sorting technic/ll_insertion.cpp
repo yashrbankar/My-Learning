@@ -26,16 +26,16 @@ void Linkedlist::display()
     Node *temp = first;
     while (temp)
     {
-        cout << " " << temp->data;
+        cout << temp->data<<" ->";
         temp = temp->next;
     }
-    cout << "\n";
+    cout << " NULL\n";
 }
 
 void Linkedlist::create()
 {
     Node *last;
-    vector<int> arr = {3, 2, 5, 4, 1};
+    vector<int> arr = {5,4,3,2,1,10,9,8,7,6};
     first = new Node;
     first->data = arr[0];
     first->next = NULL;
@@ -48,45 +48,45 @@ void Linkedlist::create()
         last->next = temp;
         last = temp;
     }
+    cout<<"Linkedlist before sort ::\n";
     display();
 }
 
 void Linkedlist::newll(Node *temp)
 {
     temp->next = NULL;
-    Node *tail = NULL, *ll;
-    ll = second;
-    if (ll == NULL)
+    Node *tail = NULL, *cur;
+    cur = second;
+    if (cur == NULL)
     {
         second = temp;
     }
     else
     {
-        while (ll)
+        while (cur)
         {
-            if (ll->data > temp->data && ll == first)
+            if (cur->data > temp->data && cur == first) // !adding element at the starting of linkedlist
             {
-                temp->next = ll;
-                second = temp;
-                first = temp;
-                break;
+                temp->next = cur;
+                second = temp; //? after the adding element at first we have to
+                first = temp;//? changing first node
+                break; // ! after insertion at correct index we have to broke the loop
             }
-            else if (ll->data > temp->data)
+            else if (cur->data > temp->data)// ? adding element in the betw of two nodes
             {
                 tail->next = temp;
-                temp->next = ll;
+                temp->next = cur;
                 break;
             }
-            else
+            else //! sliding to the next 
             {
-                if (ll->next == NULL)
+                if (cur->next == NULL) // ? addting at the last node
                 {
-                    ll->next=temp;
+                    cur->next=temp;
                     break;
                 }
-                tail = ll;
-                ll = ll->next;
-                
+                tail = cur;
+                cur = cur->next;
             }
         }
     }
@@ -101,16 +101,15 @@ void Linkedlist::insertion()
         newll(breaker);
         breaker = ptr;
         if (ptr)
-            ptr = ptr->next;
+        ptr = ptr->next;
     }
-    first = second;
 }
 int main()
 {
     Linkedlist obj;
     obj.create();
     obj.insertion();
+    cout<<"\nAfter insertion sort :: \n";
     obj.display();
-
     return 0;
 }
