@@ -35,7 +35,7 @@ void Linkedlist::display()
 void Linkedlist::create()
 {
     Node *last;
-    vector<int> arr = {2, 1, 3, 5, 6, 4, 7};
+    vector<int> arr = {1 ,3 ,5 ,7};
     first = new Node;
     first->data = arr[0];
     first->next = NULL;
@@ -48,67 +48,75 @@ void Linkedlist::create()
         last->next = temp;
         last = temp;
     }
-    cout << "Linkedlist before sort ::\n";
+    cout << "-----------------------::\n";
     display();
 }
 
 Node *Linkedlist::oddEvenList(Node *head)
 {
-    Node *check = head, *even = NULL, *odd = NULL, *lasteven, *lastodd;
-
-    if (!head || !head->next)
-    {
-        return head;
-    }
-    int data1 = head->data;
-    int data2 = head->next->data;
-    while (check)
-    {
-        if (check->data % 2 == 0)
+    
+        Node* check=head,*even=NULL,*odd=NULL,*lasteven,*lastodd;
+    
+        if(!head ||!head->next)
         {
-            if (even == NULL)
+            return head;   
+        }
+        int data=head->data;
+        while(check)
+        {
+            if(check->data%2==0)
             {
-                even = check;
-                lasteven = check;
-
-                head = head->next;
-
-                check->next = NULL;
-                check = head;
+               if(even==NULL)
+               {
+                   even=check;
+                   lasteven=check;
+                  
+                     head=head->next;   
+                   
+                   check->next=NULL;
+                   check=head;   
+               }
+               else
+               {
+                   lasteven->next=check;
+                   head=head->next;
+                   lasteven=check;
+                   check->next=NULL;
+                   check=head;
+               }
+                
             }
             else
             {
-                lasteven->next = check;
-                head = head->next;
-                check->next = NULL;
-                lasteven = check;
-                check = head;
+               if(odd==NULL)
+               {
+                   odd=check;
+                   lastodd=check;
+                   head=head->next;
+                   check->next=NULL;
+                   check=head;   
+               }
+               else
+               {
+                   lastodd->next=check;
+                   head=head->next;   
+                   lastodd=check;
+                   check->next=NULL;
+                   check=head;
+               }
             }
+        }
+        if(data%2!=0)
+        {
+            lastodd->next=even;
+            head=odd;
         }
         else
         {
-            if (odd == NULL)
-            {
-                odd = check;
-                lastodd = check;
-                head = head->next;
-                check->next = NULL;
-                check = head;
-            }
-            else
-            {
-                lastodd->next = check;
-                head = head->next;
-                check->next = NULL;
-                lastodd = check;
-                check = head;
-            }
+            lasteven->next=odd;
+            head=even;
         }
-    }
-    
-    
-        lastodd->next = even;
-        head = odd;
+        
         return head;
 }
 
@@ -117,7 +125,7 @@ int main()
     Linkedlist obj;
     obj.create();
     obj.first = obj.oddEvenList(obj.first);
-    cout << "\nAfter insertion sort :: \n";
+    cout << "\n----------------------\n";
     obj.display();
     return 0;
 }
