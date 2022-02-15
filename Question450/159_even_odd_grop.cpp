@@ -35,7 +35,7 @@ void Linkedlist::display()
 void Linkedlist::create()
 {
     Node *last;
-    vector<int> arr = {1,2,3,4,5,6,7};
+    vector<int> arr = {2, 1, 3, 5, 6, 4, 7};
     first = new Node;
     first->data = arr[0];
     first->next = NULL;
@@ -54,23 +54,61 @@ void Linkedlist::create()
 
 Node *Linkedlist::oddEvenList(Node *head)
 {
-    if(head == NULL) return NULL;
-        if(head->next==NULL) return head;
-        
-        Node *even = head->next;
-        Node *evenHead = head->next;
-       
-        Node *odd = head;
-       
-        while(even != NULL && even->next != NULL){
-           odd->next = even->next;
-           odd = odd->next;
-           
-           even->next = odd->next;
-           even = even->next;
+    Node *check = head, *even = NULL, *odd = NULL, *lasteven, *lastodd;
+
+    if (!head || !head->next)
+    {
+        return head;
+    }
+    int data1 = head->data;
+    int data2 = head->next->data;
+    while (check)
+    {
+        if (check->data % 2 == 0)
+        {
+            if (even == NULL)
+            {
+                even = check;
+                lasteven = check;
+
+                head = head->next;
+
+                check->next = NULL;
+                check = head;
+            }
+            else
+            {
+                lasteven->next = check;
+                head = head->next;
+                check->next = NULL;
+                lasteven = check;
+                check = head;
+            }
         }
-       
-        odd->next = evenHead;
+        else
+        {
+            if (odd == NULL)
+            {
+                odd = check;
+                lastodd = check;
+                head = head->next;
+                check->next = NULL;
+                check = head;
+            }
+            else
+            {
+                lastodd->next = check;
+                head = head->next;
+                check->next = NULL;
+                lastodd = check;
+                check = head;
+            }
+        }
+    }
+    
+    
+        lastodd->next = even;
+        head = odd;
         return head;
 }
 
