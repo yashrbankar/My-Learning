@@ -53,7 +53,36 @@ void Linkedlist::create()
 
 void Linkedlist::function(Node *head)
 {
-    
+    Node *temp = head, *forw = temp->next, *upnext = temp->next->next, *prev = NULL;
+
+    while (temp)
+    {
+        temp->next = upnext;
+        forw->next = temp;
+        if (prev == NULL)
+        {
+            head = forw;
+        }
+        else
+        {
+            prev->next = forw;
+        }
+        prev = temp;
+
+        temp = temp->next;
+        if (temp)
+        {
+            forw = temp->next;
+            if (forw==NULL)
+            {
+                break;
+            }
+            upnext = forw->next;
+            
+        }
+    }
+    first = head;
+    // return head;
 }
 
 int main()
