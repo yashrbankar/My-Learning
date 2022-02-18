@@ -106,44 +106,49 @@ void Linkedlist::display2()
 
 void Linkedlist::singly()
 {
-    Node *horizontal = first; // ? pointer used for traversing horizontally
-    Node *target; //! shifting element 
-    Node *cur, *tail, *base = first;  
-    while (horizontal)
+    Node *temp_next = first;
+    Node *temp_bottom = first->bottom;
+    Node *target = temp_bottom;
+    Node *cur, *tail, *base = first;
+    while (temp_next) // for traversing linear
     {
-        tail = horizontal; //! sliding pointer 
+        tail = temp_next;
         cur = tail->next;
-        while (base->bottom)
+        while (base->bottom) // for traversing vertical
         {
-            target = base->bottom; // *setting the pointer  
-            if (!cur) //! that means we have to insert at end 
+            if (!cur)
             {
-                base->bottom = target->bottom;// * creating the bridge 
-                tail->next = target; // inserting 
-                target->bottom = NULL; // most imp 
-                target->next = NULL;// inserting
-                //  resetting the tail and cur pointer 
+                base->bottom = target->bottom;
+                tail->next = target;
+                target->bottom = NULL;
+                target->next = NULL;
                 tail = base;
                 cur = tail->next;
             }
 
             else if (cur->data > target->data)
             {
-                base->bottom = target->bottom;
-                tail->next = target;
-                target->bottom = NULL; // very imp step  target.bottom must be null
+                base->bottom = target->bottom; //? creating brige 
+                tail->next = target; //! inserting  target node after tail
+                target->bottom = NULL; //! insertion
                 target->next = cur;
                 cur = target;
+                target = base->bottom;
             }
+
             else
             {
-                // sliding 
                 tail = cur;
                 cur = cur->next;
             }
         }
+
         base = base->next;
-        horizontal = horizontal->next;
+        if (base)
+        {
+            target = base->bottom;
+        }
+        temp_next = temp_next->next;
     }
 }
 
@@ -154,5 +159,8 @@ int main()
     obj.display();
     obj.singly();
     obj.display2();
+    // cout<<"\n this the inorder :: \n";
+    // obj.recur(obj.first);
+
     return 0;
 }
