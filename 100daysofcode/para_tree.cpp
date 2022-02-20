@@ -138,7 +138,6 @@ int Tree::leaf(Node*root)
         {
            leafcount++;
         }
-
     }
     return leafcount;
 }
