@@ -26,8 +26,6 @@ public:
     void rever_level();
     int count_node(Node*);
     int height(Node*);
-    int addition(Node*);
-    int diameter(Node*);
 };
 
 void Tree::preorder()
@@ -197,31 +195,6 @@ int Tree::count_node(Node*root)
     return 0;
 
 }
-int Tree::addition(Node*root)
-{
-    int x=0 , y=0;
-    if(root)
-    {
-        x=addition(root->lchild);
-        y=addition(root->rchild);
-        return x+y+root->data;
-    }
-    return 0;
-}
-
-int Tree::diameter(Node* root)
-{
-    if(root==NULL)
-    {
-        return 0;
-    }
-
-    int a=diameter(root->lchild);
-    int b=diameter(root->rchild);
-    int c= height(root->lchild)+height(root->rchild);
-    int ans=max(a,max(b,c));
-    return ans;
-}
 int Tree::height(Node*root)
 {
     int x=0 , y=0;
@@ -256,9 +229,7 @@ int main()
     cout << " \n level order ::\n ";
     obj.rever_level();
     cout<<"\n count of node :: "<<obj.count_node(obj.root);
-    cout<<"\n Addition  :: "<<obj.addition(obj.root);
     cout<<"\n height :: "<<obj.height(obj.root);
-    cout<<"\n diameter :: "<<obj.diameter(obj.root);
 
     return 0;
 }
