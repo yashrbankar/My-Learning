@@ -1,0 +1,1 @@
+root=new Node(data);
