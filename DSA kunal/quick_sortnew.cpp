@@ -40,7 +40,7 @@ void Quicksort(int first, int last, int arr[]) // passing vector as parameter
 
 int main()
 {
-    int arr[5] = {50, 40, 30, 20, 10};
+    int arr[5] = {1,2,3,4,5};
     cout << "before sorting ::";
     for (int i = 0; i < 5; i++)
     {
