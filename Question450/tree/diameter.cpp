@@ -118,7 +118,7 @@ pair<int,int> Tree::diameter1(Node* root)
 
     pair<int, int> ans;
     ans.first=max(opt1,max(opt2,opt));
-    ans.second=left.second+right.second+1;
+    ans.second=max(left.second,right.second)+1;
     return ans;
 }
 
