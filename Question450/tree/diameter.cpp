@@ -18,11 +18,14 @@ class Tree
 {
 public:
     Node *root;
+    bool isbalance=true; // by defulat is false
     Node *create(Node *root);
     int diameter(Node *);
     pair<int , int> diameter1(Node *);
     int height(Node *);
     void levelorder();
+    bool balanced(Node*);
+
 };
 
 Node *Tree::create(Node *root)
@@ -85,6 +88,10 @@ int Tree::height(Node *root)
     int lheight = height(root->lchild);
     int rheight = height(root->rchild);
     int ans = max(lheight, rheight) + 1;
+    if(abs(lheight-rheight)>1)
+    {
+        isbalance=false;
+    }
     return ans;
 }
 ///////////////////////////////////
@@ -122,14 +129,17 @@ pair<int,int> Tree::diameter1(Node* root)
     return ans;
 }
 
+////////////// ![3,9,20,null,null,15,7]
+
+bool Tree::balanced(Node* root)
+{
+    height(root);
+    return isbalance;
+}
 int main()
 {
     Tree obj;
     obj.root = obj.create(obj.root);
-    cout<<"\n";
-    obj.levelorder();
-    cout << "diameter test :: " << obj.diameter(obj.root);
-    cout << "\n diameter test 2:: " << obj.diameter1(obj.root).first;
-
+    cout<<"result :: "<<obj.balanced(obj.root);
     return 0;
 }
