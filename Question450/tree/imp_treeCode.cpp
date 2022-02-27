@@ -129,13 +129,15 @@ pair<int,int> Tree::diameter1(Node* root)
     return ans;
 }
 
-////////////// ![3,9,20,null,null,15,7]
+/////////////
 
 bool Tree::balanced(Node* root)
 {
     height(root);
     return isbalance;
 }
+
+
 int main()
 {
     Tree obj;
