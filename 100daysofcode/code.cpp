@@ -1,80 +1,79 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 class Node
 {
-    
-public:
+    public:
     int data;
-    Node *next;
+    Node* next;
 };
 
 class Linkedlist
 {
-public:
-    Node *first;
-    Node *newll;
+    public:
+    Node*first;
+    Node*last;
     void create();
-    void function();
-    void display();
+    void display(Node*);
+    void func();
 };
 
 void Linkedlist::create()
 {
-    Node *last;
-    int arr[] = {1,2,2,2,3,3};
-    first = new Node;
-    first->data = arr[0];
-    first->next = NULL;
-    last = first;
-    for (int i = 1; i < 6; i++)
+    vector<int>v={1,2,3,4,5,6,7};
+    Node * temp;
+    first=new Node;
+    first->data=v[0];
+    first->next=NULL;
+    last=first;
+    for (int i = 1; i < v.size(); i++)
     {
-        Node *temp = new Node;
-        temp->data = arr[i];
-        temp->next = NULL;
-        last->next = temp;
-        last = temp;
+        temp=new Node;
+        temp->data=v[i];
+        last->next=temp;
+        temp->next=NULL;
+        last=temp;
     }
-    display();
+    last->next=first;
+    display(first);
 }
-
-void Linkedlist::function()
+void Linkedlist::func()
 {
-     Node*tail=first , *cur=first->next;
-     while (cur)
-     {
-        if(cur->data==tail->data)
+    Node* slow=first , *fast=first;
+    do
+    {
+        if(fast->next==first)
         {
-            tail->next=cur->next;
-            cur->next=NULL;
-            delete cur;
-            cur=tail->next;
-        } 
-        else
-        {
-            tail=cur;
-            cur=cur->next;
+            break;
         }
-     } 
-     display();
+        fast=fast->next;
+        if(fast->next==first)
+        {
+            break;
+        }
+        fast=fast->next;
+        slow=slow->next;  
+    } while (fast!=first);
+    cout<<"mid :: "<<slow->data;
+    
+}
+void Linkedlist::display(Node* temp)
+{
+    do
+    {
+        cout<<" "<<temp->data;
+        temp=temp->next;
+    } while (temp!=first);
+    
 }
 
-void Linkedlist::display()
-{
-    Node *temp = first;
-    while (temp)
-    {
-        cout << temp->data << "-->";
-        temp = temp->next;
-    }
-    cout << "NULL \n";
-}
+
+
 int main()
 {
     Linkedlist obj;
     obj.create();
-    obj.function();
-    // obj.display();
-
-    return 0;
+    cout<<"\n";
+    obj.func();
+   return 0;
 }

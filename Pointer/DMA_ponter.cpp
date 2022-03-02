@@ -6,7 +6,7 @@ int main()
     int *ptr;         // pointer  ptr created inside the stack
     ptr = new int[5]; // DMA in the heap
                       // 5 space is created inside the heap
-
+    cout<<" ptr ::"<<sizeof(ptr);
     /*
     int arr[8];  ptr= new int[n];
      Dynmaic memory allocation using pointers

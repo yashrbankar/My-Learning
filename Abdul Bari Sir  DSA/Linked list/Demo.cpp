@@ -26,7 +26,7 @@ int main() {
    insert(7);
    insert(2);
    insert(9);
-   cout<<"The linked list is: ";
+   cout<<"The linked list is :";
    display();
    return 0;
 }
