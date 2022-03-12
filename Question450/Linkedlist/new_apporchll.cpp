@@ -23,6 +23,7 @@ void Linkedlist::function()
     Node *slow = first;
     Node *back = NULL;
     //  this is the leetcode commit 
+    //  this the leetcode commit
 
     // Find the middle of the list using a slow/fast pointer.
     // Reverse the front of the list while moving forward.
