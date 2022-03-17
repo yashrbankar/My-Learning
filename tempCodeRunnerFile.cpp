@@ -23,6 +23,7 @@ void Linkedlist::create()
     Node *last, *temp;
     first = new Node;
     first->data = arr[0];
+    // this 
     first->bottom = first->next = NULL;
     last = first;
     for (int i = 1; i < 4; i++)
