@@ -78,5 +78,6 @@ int main()
     obj.display();
     obj.grouping(obj.first , 4);
     obj.display();
+    //  reverse the linkedlist
    return 0;
 }
