@@ -21,6 +21,7 @@ public:
     void Deposit(long long);
     void withdraw(long long);
     void bank_to_bank_trasfer(long long);
+    // long long 
     long long login();
     void lobby();
     void get_money_statement(long long);
