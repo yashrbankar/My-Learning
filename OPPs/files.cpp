@@ -14,6 +14,7 @@ class Linkedlist
    void create();
    void display();
    void reverse();
+   void dubli();
    
 };
 
@@ -22,7 +23,7 @@ void Linkedlist::create()
    int data;
    Node *last;
    first=new Node;
-   vector<int>v={1,2,3,4,5};
+   vector<int>v={1,2,2,2,4,4,5,5};
    first->data=v[0];
    first->next=NULL;
    last=first;
@@ -61,6 +62,28 @@ void Linkedlist::reverse()
    first=prev;
 }
 
+void Linkedlist::dubli()
+{
+   Node* temp=first, *del=first->next;
+
+   while (del)
+   {
+      if(temp->data==del->data)
+      {
+           temp->next=del->next;
+           delete del;
+           del=NULL;
+           del=temp->next;
+      }
+      else
+      {
+         temp=del;
+         del=del->next;
+      }
+   }
+   
+}
+
 int main()
 {
    Linkedlist obj;
@@ -69,6 +92,7 @@ int main()
    cout<<"\n address ::"<<obj.first->next;
    obj.reverse();
    cout<<"\n";
+   obj.dubli();
    obj.display();
    return 0;
       
