@@ -9,9 +9,9 @@ class TiangleArea
     a=sc.nextFloat();
     b=sc.nextFloat();
     c=sc.nextFloat();
-    s=(a+b+c)/2f;
+    s=(float)(a+b+c)/2;
     area=Math.sqrt(s*(s-a)*(s-b)*(s-c));
-    System.out.print("Area :: "+area);
+    System.out.print("Area :: "+ area);
     
   }
 }
