@@ -83,6 +83,7 @@ class Tree:public Node,public Stack,public Queue
     int height(Node*);
     int diameter(Node*);
     void levelorder();
+
 };
 
 void Tree::create_level()
@@ -124,6 +125,29 @@ void Tree::create_level()
         }
     }
 }
+
+void Tree::levelorder()
+{
+    Node* temp=root;
+    enQueue(temp);
+    while (front!=rear)
+    {
+        Node* q=deQueue();
+        cout<<" "<<q->data;
+        if(temp->lchild)
+        {
+            enQueue(temp->lchild);
+        }
+        if(temp->rchild)
+        {
+            enQueue(temp->rchild);
+        }
+
+    }
+    
+}
+
+
 
 void Tree::preorder(Node* root)
 { 
@@ -177,6 +201,8 @@ int main()
     cout<<"diameter is :: "<<obj.diameter(obj.root);
     cout<<"\n";
     obj.preorder(obj.root);
+    cout<<"level order :: ";
+    obj.levelorder();
 
    
    return 0;
