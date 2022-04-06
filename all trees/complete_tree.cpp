@@ -134,13 +134,13 @@ void Tree::levelorder()
     {
         Node* q=deQueue();
         cout<<" "<<q->data;
-        if(temp->lchild)
+        if(q->lchild)
         {
-            enQueue(temp->lchild);
+            enQueue(q->lchild);
         }
-        if(temp->rchild)
+        if(q->rchild)
         {
-            enQueue(temp->rchild);
+            enQueue(q->rchild);
         }
 
     }
