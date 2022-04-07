@@ -12,7 +12,6 @@ class BitwiseDemo
          // z=x&y;// O/P 2
           z=x|y;// O/P 14
           System.out.println("x&y ::"+z);
-          
           /*
           int s=0b1010;//8
           int r; //== 8
