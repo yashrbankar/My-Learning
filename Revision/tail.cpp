@@ -1,20 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-void recursion(int n)
-{
-  if(n>0)
+int recursion(int n)
+{++
+  if (n > 0)
   {
-    cout<<n<<"-> calling time"<<"\n";
-    recursion(n-1);
-    
-    cout<<n<<"-> returning time"<<"\n";
+    cout << n << "-> calling time"<< "\n";
+    int x = recursion(n - 1);
+    cout << n << "-> returning time"<< "\n";
+    return n;
+  }
+  else
+  {
+    return 0;
   }
 }
 
 int main()
 {
-   recursion(5);
-   return 0;
+  recursion(5);
+  return 0;
 }

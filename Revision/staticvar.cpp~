@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int recursion(int n)
+{
+  static int x=0;// it runs only one time in recursion 
+  if(n>0)
+  {
+       x++;
+      return recursion(n-1)+x;
+  }
+  return 0;
+}
+
+int main()
+{
+   cout<<" Answer :: "<<recursion(3);
+   return 0;
+}
+
+   
