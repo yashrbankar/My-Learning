@@ -85,6 +85,7 @@ class Tree:public Node,public Stack,public Queue
     void levelorder();
 
 };
+//  changes in c++
 
 void Tree::create_level()
 {
