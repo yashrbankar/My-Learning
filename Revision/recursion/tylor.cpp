@@ -24,7 +24,7 @@ int main()
 {
    cout<<"enter the power of e* :: ";
    int x;
-   cin>>x;
-   cout<<"E* _::_"<<E(x,10);
+   // cin>>x;
+   cout<<"E* _::_"<<E(1,4);
    return 0;
 }
