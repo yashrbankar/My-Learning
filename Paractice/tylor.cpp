@@ -13,16 +13,18 @@ double  E(int x , int n)
   
   else
   {
-      r=E(x,n-1);
+      r=E(x,n-1); 
       f=f*n;
       p=p*x;
       return r+p/f;
-      
   }
 
 }
 int main()
 {
-   cout<<"E* ::"<<E(1,10);
+   cout<<"enter the power of e* :: ";
+   int x;
+   cin>>x;
+   cout<<"E* _::_"<<E(x,10);
    return 0;
 }
