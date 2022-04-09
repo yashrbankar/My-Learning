@@ -27,7 +27,7 @@ int binary(int key, vector<int>v, int l , int h)
 {
   if(l<=h)
   {
-    mid=(j+i)/2;
+    int mid=(l+h)/2;
     if(v[mid]==key)
     {
       return mid;

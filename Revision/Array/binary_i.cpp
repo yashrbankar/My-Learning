@@ -50,7 +50,7 @@ int main()
 {
    vector<int>v={1,2,3,4,5};
    //int ans=Binary(v,1);
-   int ans=binary(1,v,0,v.size());
+   int ans=binary(9,v,0,v.size());
    cout<<"answer is found at index :: "<<ans;
    return 0;
 }
