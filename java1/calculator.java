@@ -40,6 +40,7 @@ class Cal
        default :
        System.out.println("enter correct key ");
        break;
+       ..
  
        */
      }

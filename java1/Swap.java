@@ -9,5 +9,8 @@ class Swap
       a=(byte)(a^b);
       
       System.out.println("after swaping the element :: "+a +"  "+ b);
+      //
+      
+      
   }
 }

@@ -9,5 +9,7 @@ class Merging
       c=(byte)(b|c);
       System.out.println((c&0b00001111));
       System.out.println((c&0b11110000)>>4);
+      //  
+      
    }
 }
