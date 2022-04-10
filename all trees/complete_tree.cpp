@@ -179,9 +179,8 @@ int Tree::diameter(Node* root)
     }
     int cur;
     cur=root->data;
-    
     int a=diameter(root->lchild);
-    cur=root->data;//current
+    cur=root->data; // the yash ramchandra bankar 
     int b=diameter(root->rchild);
     cur=root->data;
     int c=height(root->lchild)+height(root->rchild);
