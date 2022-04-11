@@ -63,6 +63,7 @@ int main()
     {
         H.push_back(NULL);
     }
+    
     insert(55, H);
     insert(15, H);
     insert(75, H);
