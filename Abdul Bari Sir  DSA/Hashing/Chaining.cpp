@@ -63,12 +63,13 @@ int main()
     {
         H.push_back(NULL);
     }
-    
+
     insert(55, H);
     insert(15, H);
     insert(75, H);
     insert(25, H);
     insert(23,H);
     insert(21,H);
-    cout<<"yash";
+    bool t;
+    cout<<"true ::"<<t;
 }
