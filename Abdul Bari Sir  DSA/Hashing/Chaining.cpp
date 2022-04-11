@@ -70,7 +70,4 @@ int main()
     insert(25, H);
     insert(23,H);
     insert(21,H);
-    bool t;
-    cout<<"true ::"<<t;
-    // this is yash bankar 
 }
