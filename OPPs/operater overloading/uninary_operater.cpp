@@ -5,10 +5,10 @@ using namespace std;
 
 
 class Test{
-public:
 
 	// Member Object
-	int var1, var2;
+	int var1,var2;
+public:
 
 	// Constructor to initialize the object's value
 	Test(int v1, int v2)
@@ -26,7 +26,7 @@ public:
 	}
     void display()
     {
-       cout << " Answer ::" << var1 << " , " << var2; 
+       cout << " Answer::" << var1 << " , " << var2; 
     }
 };
 
