@@ -6,6 +6,7 @@ class Basic
   //  syntax in java
    public static void main(String args[])
    {
+       
           System.out.println("shra");
         //   ya 
     }
