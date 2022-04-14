@@ -22,8 +22,8 @@ int main()
     
     pv.first={1,2,3,4};
     pv.second={11,22,33,44};
-    swap(pv[0],pv[3]);
-    cout<<"swaping result :: "<<pv.first[3]<<"\n";11
+    // swap(pv[0],pv[3]); ! giving the error 
+    cout<<"swaping result :: "<<pv.first[3]<<"\n";
     
     for(int i=0;i<4;i++)
     {

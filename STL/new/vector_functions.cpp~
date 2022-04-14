@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+  vector<int> v;
+  cout<<" size : "<<v.size(); // size of vector // no of element 
+  
+  
+}

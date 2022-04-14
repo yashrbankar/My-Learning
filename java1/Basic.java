@@ -8,7 +8,7 @@ class Basic
    {
        
           System.out.println("shra");
-        //   ya 
+        //   yash  
     }
 }
 
