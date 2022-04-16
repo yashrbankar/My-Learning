@@ -35,7 +35,7 @@ int main()
        Display(v[i],i+1);
        cout<<"\n";
    }
-
+   cout<<"2D Representation : "<<v[1][1]; // this similar to 2D array fix rows Bt varible column
 }
 
 
