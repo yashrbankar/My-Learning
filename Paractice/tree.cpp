@@ -80,13 +80,16 @@ class Tree: public Node,public Stack,public Queue
     int height(Node*);
     int diameter(Node*);
     void levelorder(Node*);
+    int counting(Node*);
     Tree()
     {
      Create();
      preorder(root);
      cout<<"\nheight of tree is "<<height(root);
-     cout<<"\ndiameter of tree "<<diameter(root);
+     cout<<"\ndiameter of tree "<<diameter(root)<<endl;
+     cout<<"LevelOrder \n";
      levelorder(root);
+     cout<<"Sum :: "<<counting(root);
     }
     
 };
@@ -140,7 +143,7 @@ void Tree::preorder(Node* root)
    {
       cout<<" "<<root->data;
       preorder(root->lchild);
-       preorder(root->rchild);
+      preorder(root->rchild);
    }
 }
 
@@ -171,9 +174,50 @@ int Tree::diameter(Node* root)
    return ans;
 }
 
-void levelorder(Node* root)
+void Tree::levelorder(Node* root)
 {
+    Queue obj;
+    obj.enqueue(root);
+    obj.enqueue(NULL);
+    
+    while(obj.front!=obj.rear)
+    {
+      Node* q=obj.dequeue();
+      if(q==NULL)
+      {
+         cout<<"\n";
+         if(obj.front!=obj.rear)
+         {
+            obj.enqueue(NULL);
+         }
+         
+      }
+      else
+      {
+        cout<<" "<<q->data;
+        if(q->lchild)
+        {
+           obj.enqueue(q->lchild);
+        }
+        if(q->rchild)
+        {
+           obj.enqueue(q->rchild);
+        }
+      }
+    
+    }
+}
 
+
+int Tree::counting(Node* root)
+{
+   if(root)
+   {
+     int a=counting(root->lchild);
+     int b=counting(root->rchild);
+     return a+b+root->data;
+   }
+   return 0;
 }
 
 
