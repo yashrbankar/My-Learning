@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void recursion(int n)
+{
+  if(n>0)
+  {
+    cout<<n<<"-> calling time";
+    recursion(n-1);
+    cout<<n<<"-> returning time";
+  }
+}
+
+void main()
+{
+   recursion(5);
+}
