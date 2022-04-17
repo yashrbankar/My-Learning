@@ -1,2 +1,0 @@
-cd "c:\Users\Shree Samarth Krupa\Desktop\C++\OPPs\" ; if ($?) { g++ gfg1.cpp -o gfg1 } ; if ($?) { .\gfg1 }
-
