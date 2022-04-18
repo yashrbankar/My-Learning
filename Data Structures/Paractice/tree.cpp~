@@ -12,7 +12,7 @@ class Node
 class Stack
 {
    public:
-   int top;
+   int top=-1;
    vector<Node*> vs;
    Node* pop();
    void push(Node*);
@@ -81,15 +81,19 @@ class Tree: public Node,public Stack,public Queue
     int diameter(Node*);
     void levelorder(Node*);
     int counting(Node*);
+    void preorderit(Node*);
     Tree()
     {
      Create();
+     preorderit(root);
+     cout<<"\n";
      preorder(root);
      cout<<"\nheight of tree is "<<height(root);
      cout<<"\ndiameter of tree "<<diameter(root)<<endl;
      cout<<"LevelOrder \n";
      levelorder(root);
      cout<<"Sum :: "<<counting(root);
+     
     }
     
 };
@@ -220,7 +224,25 @@ int Tree::counting(Node* root)
    return 0;
 }
 
-
+void Tree::preorderit(Node* root )
+{
+     Node* temp=root;
+     Stack st;
+     while(st.top!=-1||temp)
+     {
+        if(temp)
+        {
+           cout<<" "<<temp->data;
+           st.push(temp);
+           temp=temp->lchild;
+        }
+        else
+        {
+           temp=st.pop();
+           temp=temp->rchild;
+        }
+     }
+}
 int main()
 {
    Tree obj; 
