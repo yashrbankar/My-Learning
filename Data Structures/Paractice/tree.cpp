@@ -121,6 +121,7 @@ void Tree::Create()
       cin>>x;
       if(x!=-1)
       {
+         //changes
           Node* temp=new Node;
           temp->data=x;
           q->lchild=temp;
