@@ -3,6 +3,7 @@ using namespace std;
 
 class Node
 {
+   // tree code in c++
   public:
   int data;
   Node* lchild;
