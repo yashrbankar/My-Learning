@@ -6,6 +6,7 @@ int gcd(int ro , int si)
 	if(si==0)
 	{
        return ro;
+	   // this testing 
 	}
 	else
 	{
