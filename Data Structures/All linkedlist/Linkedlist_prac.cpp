@@ -16,6 +16,8 @@ class Linkedlist
      void display();
      void reverse_r(Node*);
      void reverse();
+     void mid();
+     
 };
 
 void Linkedlist::create()
@@ -77,14 +79,32 @@ void Linkedlist:: reverse()
 }
 
 
+void Linkedlist::mid()
+{
+   Node* fast=first;
+   Node* slow=first;
+   int index=0;
+   while(fast)
+   {
+     slow=slow->next;
+     fast=fast->next;
+     if(fast)
+     {
+       fast=fast->next;
+       index++;
+     }
+   }
+   cout<<"Mid : "<<index;
+   
+}
 
 
 int main()
 {
    Linkedlist obj;
    obj.create();
-   obj.reverse_r(obj.first);
-   obj.reverse();
-  
+   //obj.reverse_r(obj.first);
+   //obj.reverse();
+   obj.mid();
    obj.display();
 }
