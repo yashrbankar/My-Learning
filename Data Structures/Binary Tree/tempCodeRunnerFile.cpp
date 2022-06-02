@@ -1,1 +1,12 @@
-1 2 3 4 5 -1 -1 6 -1 -1 7 8 -1 -1 9 -1 -1 -1 -1
+ if (root == NULL)
+    {
+        return 0;
+    }
+    int lheight = height(root->lchild);
+    int rheight = height(root->rchild);
+    int ans = max(lheight, rheight) + 1;
+    if(abs(lheight-rheight)>1)
+    {
+        isbalance=false;
+    }
+    return ans;

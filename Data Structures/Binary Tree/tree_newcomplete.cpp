@@ -88,6 +88,7 @@ void Tree::rever_level()
     stack<Node *> s;
     q.push(root);
     q.push(NULL);
+    // reversing the traversal we use the stack
     s.push(root);
     s.push(NULL);
     Node *temp;
@@ -242,6 +243,7 @@ int Tree::height(Node*root)
     return 0;
 
 }
+
 
 int main()
 {
