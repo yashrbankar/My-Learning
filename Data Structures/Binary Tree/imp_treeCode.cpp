@@ -94,6 +94,7 @@ int Tree::height(Node *root)
     }
     return ans;
 }
+
 ///////////////////////////////////
 
 int Tree::diameter(Node *root)
