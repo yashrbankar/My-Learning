@@ -116,7 +116,7 @@ pair<int,int> Tree::diameter1(Node* root)
         pair<int, int>p=make_pair(0,0);
         return p;
     }
-
+     
     pair<int , int> left = diameter1(root->lchild);
     pair<int , int> right = diameter1(root->rchild);
     int opt1=left.first;
