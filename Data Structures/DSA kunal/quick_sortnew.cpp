@@ -8,6 +8,7 @@ int partition(int first, int last, int arr[])
     int pivot = arr[first];
 
     while (i < j)
+    // this commit
     {
         while (arr[i] <= pivot)
         {
