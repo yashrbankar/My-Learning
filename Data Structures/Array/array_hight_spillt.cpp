@@ -2,7 +2,7 @@
 using namespace std;
 // changes
 // changes
-//
+// changes
 int main()
 {
     int input, no_of_element, highest_value, add;
