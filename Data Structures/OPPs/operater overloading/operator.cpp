@@ -3,25 +3,25 @@ using namespace std;
 
 class Complex
 {
-    int i , r;
+    int imginary , real;
     public:// access modifer 
-    Complex(int i=0, int r=0)
+    Complex(int imginary=0, int real=0)
     {
-        this->i=i;
-        this->r=r;
+        this->imginary=imginary;
+        this->real=real;
     }
 
     Complex operator +(Complex obj2)
     {
         Complex Temp;
         // this the Temp Object is used for returning
-        Temp.i=i+obj2.i;
-        Temp.r=r+obj2.r;
+        Temp.imginary=imginary+obj2.imginary;
+        Temp.real=real+obj2.real;
         return Temp;
     }
     void display()
     {
-        cout<<i<<"i +"<<r;
+        cout<<imginary<<"imginary +"<<real;
     }
 };
 
