@@ -1,55 +1,89 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void display(int arr[],int n)
+class Node{
+
+    public:// access specifer 
+    int data;
+    Node* next; // self referencial pointer
+};
+
+class Linkedlist
 {
-    for(int i=0;i<n;i++)
+    Node* first;
+    int length;
+    public:
+    Linkedlist()
     {
-        cout<<" "<<arr[i];
+      first=new Node();
+      cout<<"enter size of linkedlist :: ";
+      cin>>length;
+      create();
     }
+    void create();
+    void display();
+    void reverse();
+};
+
+void Linkedlist::reverse()
+{
+    Node* cur=first,* prev=NULL,*forw=first->next;
+    while (cur)
+    {
+        cur->next=prev;
+        prev=cur;
+        cur=forw;
+        if(forw)
+        forw=forw->next;
+    }
+    first=prev;
     cout<<"\n";
+    display();
 }
 
-int partition(int arr[], int start , int end)
+
+
+void Linkedlist::create()
 {
-    int i=start;
-    int j=end;
-    int pivot=arr[start];
-
-    while (i<j)
+    int x;
+    cout<<"enter the first element in the linkedlist::";
+    cin>>x;
+    first->data=x;
+    first->next=NULL;
+    Node* last=first;
+    for (int i = 1; i < length; i++)
     {
-        while(arr[i]<=pivot)
-        {
-            i++;
-        }
-        while(arr[j]>pivot)
-        {
-            j--;
-        }
-        if(i<j)
-        {
-            swap(arr[i],arr[j]);
-        }
+        Node* temp=new Node;
+        cin>>temp->data;
+        last->next=temp;// linking node with the prev node
+        last=temp;// upadating last to current 
+        temp->next=NULL;
     }
-    swap(arr[start],arr[j]);
-    return j;
+    display();
+    
 }
-
-
-void Quick(int arr[], int start ,int end)
+void Linkedlist::display()
 {
-    if(start<end)
+    Node* temp=first;
+    while (temp)
     {
-        int j=partition(arr, start, end);
-        Quick(arr,start,j-1);
-        Quick(arr,j+1,end);
+        if(temp->next)
+        {
+           cout<<temp->data<<"->";
+        }
+        else
+        {
+            cout<<temp->data<<"-->NULL";
+        }
+        temp=temp->next;
+        
     }
+    
 }
+
 int main()
 {
-    int arr[]={5,3,4,3,2,1,INT_MAX};
-    display(arr ,6);
-    Quick(arr,0,6);
-    display(arr,6);
+    Linkedlist obj;
+    obj.reverse();
    return 0;
 }
