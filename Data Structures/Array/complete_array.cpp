@@ -1,27 +1,55 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-int main()
+void display(int arr[],int n)
 {
-    int arr[]={1,2,2,2,3,3,3,4};
-    int H[10]={0,0,0,0,0,0,0,0,0,0};
-
-    for (int i = 0; i < 7; i++)
+    for(int i=0;i<n;i++)
     {
-        H[arr[i]]++;
+        cout<<" "<<arr[i];
     }
+    cout<<"\n";
+}
 
-    for(int i=1;i<10;i++)
+int partition(int arr[], int start , int end)
+{
+    int i=start;
+    int j=end;
+    int pivot=arr[start];
+
+    while (i<j)
     {
-        if(H[i]>0)
+        while(arr[i]<=pivot)
         {
-            cout<<H[i]<< " times "<<i<<endl;
+            i++;
+        }
+        while(arr[j]>pivot)
+        {
+            j--;
+        }
+        if(i<j)
+        {
+            swap(arr[i],arr[j]);
         }
     }
+    swap(arr[start],arr[j]);
+    return j;
+}
 
 
-    
+void Quick(int arr[], int start ,int end)
+{
+    if(start<end)
+    {
+        int j=partition(arr, start, end);
+        Quick(arr,start,j-1);
+        Quick(arr,j+1,end);
+    }
+}
+int main()
+{
+    int arr[]={5,3,4,3,2,1,INT_MAX};
+    display(arr ,6);
+    Quick(arr,0,6);
+    display(arr,6);
    return 0;
 }
