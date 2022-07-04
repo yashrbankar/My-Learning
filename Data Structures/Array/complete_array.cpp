@@ -1,89 +1,49 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Node{
-
-    public:// access specifer 
-    int data;
-    Node* next; // self referencial pointer
-};
-
-class Linkedlist
+int partition(int arr[], int start , int end)
 {
-    Node* first;
-    int length;
-    public:
-    Linkedlist()
+    int i=start;
+    int j=end;
+    int pivot=arr[start];
+    // exact position arr[start]
+    while (i<j)
     {
-      first=new Node();
-      cout<<"enter size of linkedlist :: ";
-      cin>>length;
-      create();
+        while(arr[i]<=pivot){i++;}
+        while(arr[j]>pivot){j--;}
+        if(i<j)
+        {
+            swap(arr[i],arr[j]);
+        }
     }
-    void create();
-    void display();
-    void reverse();
-};
+    swap(arr[start], arr[j]);
+    return j;
 
-void Linkedlist::reverse()
+}
+// recursive function 
+void quickSort(int arr[], int start , int end)
 {
-    Node* cur=first,* prev=NULL,*forw=first->next;
-    while (cur)
+    if(start<end)// that means array contains at least one element 
     {
-        cur->next=prev;
-        prev=cur;
-        cur=forw;
-        if(forw)
-        forw=forw->next;
+        int pivotPosition=partition(arr, start,end);
+        quickSort(arr,start,pivotPosition-1);
+        quickSort(arr,pivotPosition+1,end);
     }
-    first=prev;
+}
+void display(int arr[], int n)
+{
+    // displaying arrays
+    for(int i=0;i<n;i++)
+    {
+        cout<<"] ["<<arr[i];
+    }
     cout<<"\n";
-    display();
 }
-
-
-
-void Linkedlist::create()
-{
-    int x;
-    cout<<"enter the first element in the linkedlist::";
-    cin>>x;
-    first->data=x;
-    first->next=NULL;
-    Node* last=first;
-    for (int i = 1; i < length; i++)
-    {
-        Node* temp=new Node;
-        cin>>temp->data;
-        last->next=temp;// linking node with the prev node
-        last=temp;// upadating last to current 
-        temp->next=NULL;
-    }
-    display();
-    
-}
-void Linkedlist::display()
-{
-    Node* temp=first;
-    while (temp)
-    {
-        if(temp->next)
-        {
-           cout<<temp->data<<"->";
-        }
-        else
-        {
-            cout<<temp->data<<"-->NULL";
-        }
-        temp=temp->next;
-        
-    }
-    
-}
-
 int main()
 {
-    Linkedlist obj;
-    obj.reverse();
+    int arr[]={5,4,2,2,1};
+    display(arr,5);
+    quickSort(arr,0,5);
+    display(arr,5);
    return 0;
 }
