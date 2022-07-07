@@ -1,49 +1,126 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int partition(int arr[], int start , int end)
+class Node
 {
-    int i=start;
-    int j=end;
-    int pivot=arr[start];
-    // exact position arr[start]
-    while (i<j)
-    {
-        while(arr[i]<=pivot){i++;}
-        while(arr[j]>pivot){j--;}
-        if(i<j)
-        {
-            swap(arr[i],arr[j]);
-        }
-    }
-    swap(arr[start], arr[j]);
-    return j;
+   public: // access specifor
+   int data;
+   Node* right;// self referencail pointer
+   Node* left;// self referencail pointer
+};
 
-}
-// recursive function 
-void quickSort(int arr[], int start , int end)
+class Queue
 {
-    if(start<end)// that means array contains at least one element 
-    {
-        int pivotPosition=partition(arr, start,end);
-        quickSort(arr,start,pivotPosition-1);
-        quickSort(arr,pivotPosition+1,end);
-    }
-}
-void display(int arr[], int n)
+   public:
+   int front=-1;
+   int rear=-1;
+   vector<Node*>arrQ;
+   Queue()
+   {
+      front=rear=-1;
+   }
+   Node* frontElement();
+   void  push(Node*);
+   Node* pop();
+   
+
+};
+
+Node* Queue::frontElement()
 {
-    // displaying arrays
-    for(int i=0;i<n;i++)
-    {
-        cout<<"] ["<<arr[i];
-    }
-    cout<<"\n";
+   if(arrQ.empty())
+   {
+      cout<<"Queue is empty";
+      return NULL;
+   }
+   return arrQ[front];
 }
+
+void Queue::push(Node* newNode)
+{
+   front++;
+   arrQ.push_back(newNode);
+}
+
+Node* Queue::pop()
+{
+   if(arrQ.empty())
+   {
+      return NULL;
+   }
+   Node* temp;// temp Node
+   rear++;
+   temp=arrQ[rear];
+   return temp;
+}
+
+
+class Tree:public Queue
+{
+   public:
+   Node* root;
+      void createTree();
+      void preOrder(Node*);
+};
+
+void Tree::preOrder(Node* root)
+{
+   if(root)
+   {
+      preOrder(root->left);
+      cout<<" "<<root->data;
+      preOrder(root->right);
+   }
+}
+
+void Tree::createTree()
+{
+   // creating the tree in the level order we required Queue
+   // stl of queue 
+      root=new Node();
+      // spacee of int and left right is allocate in the heap 
+      // remeber that pointer first is present in the stack memory itself
+      // new keyword is used for getting space in the heap
+      cout<<"enter the root data :";
+      cin>>root->data;
+      root->left=root->right=NULL;
+   int x;
+   push(root);
+   int count=0;
+   while (front!=rear) // runs till the Queue is not empty
+   {
+      //cout<<front<<" "<<rear<<endl;
+      cout<<count++;
+      Node* current=pop();
+
+      cout<<"enter the element left to the  "<<current->data<<" : ";
+      cin>> x;
+      if(x!=-1)// -1 is taken as NULL  
+      {
+         Node* temp=new Node;
+         temp->data=x;
+         temp->left=temp->right=NULL;
+         current->left=temp;
+         push(temp);
+      }
+      cout<<"enter the element right to the  "<<current->data<<" : ";
+      cin>> x;
+      if(x!=-1)// -1 is taken as NULL  
+      {
+         Node* temp=new Node;
+         temp->data=x;
+         temp->left=temp->right=NULL;
+         current->right=temp;
+         push(temp);
+      }
+   }
+   cout<<"root";
+   preOrder(root);
+}
+
 int main()
 {
-    int arr[]={5,4,2,2,1};
-    display(arr,5);
-    quickSort(arr,0,5);
-    display(arr,5);
+   Tree obj;
+   obj.createTree();
    return 0;
 }
