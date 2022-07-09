@@ -65,7 +65,29 @@ int main()
    */
 ///////////////////////////////
 
-string str
+ //  abc 
+ // abc acb bca bac cab cba
+ // string hashing
+ string s="yash";
+ int arr[26]={0};
+ for (int i = 0; i <s.size(); i++)
+ {
+    // lowercase
+    int index;
+    if('a'<=s[i]&&s[i]<='z')
+    {
+        index=s[i]-'a';
+        arr[index]++;
+    }
+    // uppercase
+    if('A'<=s[i]&&s[i]<='Z')
+    {
+        index=s[i]-'A';
+        arr[index]++;
+    }
+ }
+ 
+ sort(s.begin(),s.end());
 
 cout<<"Thank you!";
    return 0;
