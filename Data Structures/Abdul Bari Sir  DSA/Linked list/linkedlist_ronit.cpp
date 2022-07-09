@@ -285,6 +285,7 @@ void Linkedlist ::_delete()
 
         for (int i = 1; i < index; i++) // mistake scope 
         {
+            //dublicate
             /* code */
             q = temp;
             temp = temp->next;
