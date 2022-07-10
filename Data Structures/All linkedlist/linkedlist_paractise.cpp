@@ -11,11 +11,11 @@ public:
 class linkedlist
 {
 public:
-    int count;
-    Node *first;
-    void create();
-    void display();
     void max();
+    int count;
+    void create();
+    Node *first;
+    void display();
     int delete1();
     bool search();
     void search_im();

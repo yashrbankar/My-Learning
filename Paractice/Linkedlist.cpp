@@ -28,6 +28,7 @@ class Linkedlist
     void insert(int , int);
     void deleteLl(int);
     void dublicate();
+    void Rotate(int);
 
 };
 
@@ -155,6 +156,33 @@ void Linkedlist::dublicate()
     }
     
 }
+
+void Linkedlist::Rotate(int n)
+{
+    n=n%length;
+    if(n==0)
+    {
+        return ;
+    }
+    int counter=0;
+    Node* end=first, *start , *current=first;
+
+    for(int i=1;i<length-n;i++)
+    {
+        current=current->Next;
+    }
+    end=current;
+    start=current->Next;
+    current=start;
+
+    while(current->Next)
+    {
+        current=current->Next;
+    }
+    current->Next=first;
+    first=start;
+    end->Next=NULL;
+}
 int main()
 {
     Linkedlist Linkedlist1;
@@ -163,7 +191,8 @@ int main()
     //Linkedlist1.deleteLl(6);
    // Linkedlist1.display();
    // Linkedlist1.deleteLl(3);
-   Linkedlist1.dublicate();
+  // Linkedlist1.dublicate();
+    Linkedlist1.Rotate(6);
     Linkedlist1.display();
    return 0;
 }

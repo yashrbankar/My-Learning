@@ -22,7 +22,7 @@ void create(int arr[], int n)
     */
     first = new Node; // first =1000;(random address)
     first->data = arr[0]; // value is store at first node
-    first->next = NULL; 1011  // only one node is created 
+    first->next = NULL; //1011  // only one node is created 
     last = first; // end of the last node till this
     // 1000  
     for (int i = 1; i <= n; i++)
