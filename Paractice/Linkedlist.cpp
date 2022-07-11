@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Node{
-
+class Node
+{
     public:
     int data;
     Node* Next;
@@ -186,13 +186,5 @@ void Linkedlist::Rotate(int n)
 int main()
 {
     Linkedlist Linkedlist1;
-   // Linkedlist1.reverse();
-   // Linkedlist1.insert(55,6);
-    //Linkedlist1.deleteLl(6);
-   // Linkedlist1.display();
-   // Linkedlist1.deleteLl(3);
-  // Linkedlist1.dublicate();
-    Linkedlist1.Rotate(6);
-    Linkedlist1.display();
    return 0;
 }

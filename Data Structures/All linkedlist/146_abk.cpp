@@ -15,10 +15,11 @@ public:
     Node *first, *last;
     void create();
     void func();
+    void func2();
 };
 void Linkedlist::create()
 {
-    vector<int> vect{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> vect{1, 2, 3, 5, 5, 6, 3, 8, 3};
     Node *temp;
     first = new Node;
     first->data = vect[0];
@@ -60,10 +61,35 @@ void Linkedlist::func()
         }
     }
 }
+
+void Linkedlist::func2()
+{
+    map<int, int> checker;
+    Node* temp=first;
+    while(temp)
+    {
+       auto it=checker.find(temp->data);
+        if(it==checker.end())
+        {
+            checker[temp->data]=1;
+        }
+        else
+        {
+            it->second++;
+        }
+        temp=temp->next;
+    }
+    for(auto it=checker.begin();it!=checker.end();it++)
+    {
+        cout<<it->first<<" "<<it->second<<endl;
+    }
+
+    
+}
 int main()
 {
     Linkedlist obj;
     obj.create();
-    obj.func();
+    obj.func2();
     return 0;
 }

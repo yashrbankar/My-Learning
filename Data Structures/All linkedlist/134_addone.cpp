@@ -16,12 +16,13 @@ public:
     // void reverse_recur(Node *, Node*);
     void reverse();
     void display(Node * );
-    void func();
+    void addOne();
+    void addOne1();
 };
 
 void Linkedlist::create()
 {
-    vector<int>arr = {9,9,9};
+    vector<int>arr = {1,2,3,8};
     Node *temp, *last;
     first = new Node;
     first->data = arr[0];
@@ -65,7 +66,7 @@ void Linkedlist::reverse()
     display(first);
 
 }
-void Linkedlist::func()
+void Linkedlist::addOne()
 {
     reverse();
     Node* temp=first;
@@ -89,12 +90,46 @@ void Linkedlist::func()
     // display(first);
 }
 
+void Linkedlist::addOne1()
+{
+    reverse();
+    Node* temp=first , *prev;
+    int carry=0;
+    while (temp)
+    {
+        // if digit is less than 9
+        if(temp->data<9)
+        {
+           temp->data=temp->data+1;
+           carry=0;
+           break;
+        }
+        // digit is 9
+        else if(temp->data==9)
+        {
+            temp->data=0;
+            carry=1;
+            prev=temp;
+            temp=temp->next;
+        }
+    }
+    //  if stil the carry is exist
+    if(carry)
+    {
+        Node* temp=new Node;
+        temp->data=carry;
+        carry=0;
+        prev->next=temp;
+    }
+    reverse();
+    display(first);
+}
 int main()
 {
     Linkedlist obj;
     obj.create();
     cout<<"\n";
-    obj.display(obj.first);
-    obj.func();
+    //obj.display(obj.first);
+    obj.addOne1();
     return 0;
 }
