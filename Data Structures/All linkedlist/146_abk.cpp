@@ -19,7 +19,7 @@ public:
 };
 void Linkedlist::create()
 {
-    vector<int> vect{1, 2, 3, 5, 5, 6, 3, 8, 3};
+    vector<int> vect{1, 2, 3, 4, 5, 6, 7, 8, 9};
     Node *temp;
     first = new Node;
     first->data = vect[0];
@@ -79,9 +79,9 @@ void Linkedlist::func2()
         }
         temp=temp->next;
     }
-    for(auto it=checker.begin();it!=checker.end();it++)
+    while(temp)
     {
-        cout<<it->first<<" "<<it->second<<endl;
+
     }
 
     

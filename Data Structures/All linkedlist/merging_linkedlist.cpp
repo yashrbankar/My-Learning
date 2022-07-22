@@ -148,7 +148,7 @@ void linkedlist::intersection()
     Node *p1, *p2;
     p1 = first;
     p2 = second;
-    while (p1=!NULL)
+    while (!p1)
     {
         stk1.push(p1);
         p1 = p1->next;
@@ -178,6 +178,6 @@ int main()
     obj.second->next->next->next = obj.first->next->next;
     obj.display(obj.first);
     obj.display(obj.second);
-    obj.intersection();
+   // obj.intersection();
     return 0;
 }
